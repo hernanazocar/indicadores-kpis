@@ -170,7 +170,7 @@ export default function KPICard({
   // Determinar color del gap según rendimiento
   const getGapColor = () => {
     if (variant === 'meta') return '';
-    if (gapUnits === null) return 'text-slate-600';
+    if (gapUnits === null || metaValue === undefined) return 'text-slate-600';
 
     if (reverseGap) {
       // Para desistimientos, negativo es bueno
