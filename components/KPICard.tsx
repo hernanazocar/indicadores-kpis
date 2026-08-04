@@ -157,10 +157,10 @@ export default function KPICard({
   let gapCLP = metaValueCLP && valueCLP ? metaValueCLP - valueCLP : null;
 
   // Si reverseGap es true (desistimientos), invertir la lógica
-  if (reverseGap && gapUnits !== null) {
+  if (reverseGap && gapUnits !== null && metaValue !== undefined) {
     gapUnits = numValue - metaValue; // Ahora positivo es malo, negativo es bueno
   }
-  if (reverseGap && gapCLP !== null) {
+  if (reverseGap && gapCLP !== null && metaValueCLP !== undefined) {
     gapCLP = (valueCLP || 0) - metaValueCLP;
   }
 
