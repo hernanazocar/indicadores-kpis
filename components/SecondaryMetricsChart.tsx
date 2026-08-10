@@ -62,21 +62,21 @@ export default function SecondaryMetricsChart({ data }: SecondaryMetricsChartPro
       className="bg-white rounded-lg shadow-md hover:shadow-xl overflow-hidden transition-all duration-300 h-full flex flex-col"
     >
       {/* Encabezado */}
-      <div className="bg-slate-50 border-b border-slate-200 p-2 flex-shrink-0">
-        <div className="flex items-center gap-2">
-          <div className="p-1.5 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 shadow-md">
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-slate-50 border-b border-slate-200 p-1.5 flex-shrink-0">
+        <div className="flex items-center gap-1.5">
+          <div className="p-1 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 shadow-md">
+            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
           </div>
-          <h3 className="text-xs font-bold text-slate-900">
+          <h3 className="text-[10px] font-bold text-slate-900">
             Métricas Operativas
           </h3>
         </div>
       </div>
 
       {/* Gráfico */}
-      <div className="p-2 flex-1 min-h-0">
+      <div className="p-1 flex-1 min-h-0">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={chartData}

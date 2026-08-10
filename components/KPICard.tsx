@@ -193,22 +193,22 @@ export default function KPICard({
       className="group h-full"
     >
       <div className={`relative ${colors.bgColor} ${colors.borderColor} rounded-lg overflow-hidden transition-all duration-300 h-full hover:shadow-2xl shadow-lg`}>
-        <div className="p-3">
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
+        <div className="p-2">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-1.5">
               {icon && (
-                <div className={`p-1.5 rounded-lg ${colors.iconBg} flex-shrink-0`}>
+                <div className={`p-1 rounded-lg ${colors.iconBg} flex-shrink-0`}>
                   <div className={colors.iconColor}>
                     {icon}
                   </div>
                 </div>
               )}
-              <p className={`text-xs font-bold ${colors.titleColor} uppercase tracking-wide`}>
+              <p className={`text-[10px] font-bold ${colors.titleColor} uppercase tracking-wide`}>
                 {title}
               </p>
             </div>
             {metaValue && progressPercent !== undefined && (
-              <span className={`px-2 py-1 rounded text-xs font-bold ${
+              <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
                 progressPercent >= 100 ? 'bg-green-100 text-green-700' :
                 progressPercent >= 70 ? 'bg-blue-100 text-blue-700' :
                 progressPercent >= 50 ? 'bg-amber-100 text-amber-700' :
@@ -219,40 +219,40 @@ export default function KPICard({
             )}
           </div>
 
-          <div className="space-y-1">
+          <div className="space-y-0.5">
             {/* Valor en unidades */}
             <motion.div
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: delay + 0.2 }}
-              className="flex items-baseline gap-2"
+              className="flex items-baseline gap-1.5"
             >
-              <div className={`${variant === 'warning' ? 'text-3xl' : 'text-4xl'} font-black ${colors.valueColor}`}>
+              <div className={`${variant === 'warning' ? 'text-2xl' : 'text-3xl'} font-black ${colors.valueColor}`}>
                 {typeof value === 'number' ? value.toLocaleString('es-CL') : value}{showPercentage ? '%' : ''}
               </div>
               {subtitle && (
-                <div className={`text-xs font-semibold ${colors.subtitleColor}`}>
+                <div className={`text-[10px] font-semibold ${colors.subtitleColor}`}>
                   {subtitle}
                 </div>
               )}
             </motion.div>
             {!subtitle && !showPercentage && (
-              <div className={`text-xs ${colors.subtitleColor} mt-1`}>
+              <div className={`text-[10px] ${colors.subtitleColor} mt-0.5`}>
                 {showPercentage ? '' : 'unidades'}
               </div>
             )}
 
             {/* Valor en CLP */}
             {valueCLP !== undefined && valueCLP > 0 && (
-              <div className={`text-sm font-bold ${colors.clpColor} mt-2`}>
+              <div className={`text-xs font-bold ${colors.clpColor} mt-1`}>
                 {formatCLP(valueCLP)}
               </div>
             )}
 
             {/* Barra de Progreso */}
             {metaValue && variant !== 'meta' && (
-              <div className="mt-3">
-                <div className="bg-slate-100 h-2 rounded-full overflow-hidden">
+              <div className="mt-2">
+                <div className="bg-slate-100 h-1.5 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${progressPercent}%` }}
@@ -265,17 +265,17 @@ export default function KPICard({
 
             {/* Gap vs Meta */}
             {gapUnits !== null && variant !== 'meta' && (
-              <div className="mt-2 pt-2 border-t border-slate-100">
-                <div className="flex items-center justify-between mb-1">
-                  <span className={`text-xs font-semibold ${colors.subtitleColor}`}>
+              <div className="mt-1.5 pt-1.5 border-t border-slate-100">
+                <div className="flex items-center justify-between mb-0.5">
+                  <span className={`text-[10px] font-semibold ${colors.subtitleColor}`}>
                     Gap vs Meta:
                   </span>
                 </div>
-                <div className={`text-base font-bold ${getGapColor()}`}>
+                <div className={`text-sm font-bold ${getGapColor()}`}>
                   {gapUnits > 0 ? '-' : '+'}{Math.abs(gapUnits).toLocaleString('es-CL')}{showPercentage ? '%' : ' unid.'}
                 </div>
                 {gapCLP !== null && gapCLP !== 0 && (
-                  <div className={`text-xs font-semibold ${colors.subtitleColor} mt-0.5`}>
+                  <div className={`text-[10px] font-semibold ${colors.subtitleColor} mt-0.5`}>
                     {gapCLP > 0 ? '-' : '+'}{formatCLP(Math.abs(gapCLP))}
                   </div>
                 )}
@@ -284,7 +284,7 @@ export default function KPICard({
 
             {/* Additional Info */}
             {additionalInfo && !metaValue && (
-              <div className={`text-[10px] font-semibold ${colors.subtitleColor} mt-2 leading-snug whitespace-pre-line`}>
+              <div className={`text-[9px] font-semibold ${colors.subtitleColor} mt-1 leading-snug whitespace-pre-line`}>
                 {additionalInfo}
               </div>
             )}

@@ -32,27 +32,27 @@ export default function DemoPage() {
 
   return (
     <div className="h-screen overflow-hidden bg-emerald-900">
-      <div className="container mx-auto px-3 py-2 max-w-7xl h-full flex flex-col">
-        {/* Header ejecutivo */}
-        <div className="flex items-center justify-between mb-2 flex-shrink-0">
+      <div className="container mx-auto px-2 py-1 max-w-7xl h-full flex flex-col">
+        {/* Header ejecutivo - MÁS COMPACTO */}
+        <div className="flex items-center justify-between mb-1 flex-shrink-0">
           <div>
-            <h1 className="text-xl font-bold text-white">KPIs Dashboard</h1>
-            <p className="text-xs text-gray-400">Actualizado: {new Date().toLocaleString('es-CL', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+            <h1 className="text-base font-bold text-white">KPIs Dashboard</h1>
+            <p className="text-[10px] text-gray-400">Actualizado: {new Date().toLocaleString('es-CL', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
           </div>
           <button
             onClick={handleRefresh}
             disabled={isLoading}
-            className="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-sm font-semibold disabled:opacity-50 transition-all flex items-center gap-2"
+            className="px-3 py-1 rounded-lg bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-xs font-semibold disabled:opacity-50 transition-all flex items-center gap-1"
           >
-            <svg className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className={`w-3 h-3 ${isLoading ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
             Actualizar
           </button>
         </div>
 
-        {/* Primera fila: Meta, Reservas, Firmas, Desistimientos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-2 flex-shrink-0">
+        {/* Primera fila: Meta, Reservas, Firmas, Desistimientos - MÁS COMPACTO */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1.5 mb-1.5 flex-shrink-0">
           <MetaCard
             value={kpiData.metaDelMes}
             valueCLP={kpiData.metaDelMesCLP}
@@ -102,80 +102,78 @@ export default function DemoPage() {
           />
         </div>
 
-        {/* Segunda fila: Tabla ejecutiva */}
-        <div className="bg-white rounded-lg p-2 shadow-lg flex-shrink-0">
-          <div className="grid grid-cols-6 gap-3">
+        {/* Segunda fila: Tabla ejecutiva - MÁS COMPACTA */}
+        <div className="bg-white rounded-lg p-1.5 shadow-lg flex-shrink-0">
+          <div className="grid grid-cols-6 gap-2">
             {/* 1. Días Firmas */}
-            <div className="border-r border-gray-200 pr-4">
-              <div className="text-xs text-gray-500 uppercase mb-2 font-semibold">Días Firmas</div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.diasFirmasDelMes}</div>
-              <div className="flex items-center gap-1 mb-2">
-                <div className={`text-xs font-bold ${kpiData.diasFirmasDelMes <= kpiData.metaDiasFirmas ? 'text-green-600' : 'text-red-600'}`}>
+            <div className="border-r border-gray-200 pr-2">
+              <div className="text-[10px] text-gray-500 uppercase mb-1 font-semibold">Días Firmas</div>
+              <div className="text-2xl font-black text-gray-900 mb-0.5">{kpiData.diasFirmasDelMes}</div>
+              <div className="flex items-center gap-1 mb-1">
+                <div className={`text-[10px] font-bold ${kpiData.diasFirmasDelMes <= kpiData.metaDiasFirmas ? 'text-green-600' : 'text-red-600'}`}>
                   {kpiData.diasFirmasDelMes <= kpiData.metaDiasFirmas ? '▼' : '▲'} {Math.abs(Math.round(((kpiData.diasFirmasDelMes - kpiData.metaDiasFirmas) / kpiData.metaDiasFirmas) * 100))}%
                 </div>
-                <div className="text-xs text-gray-400">vs meta</div>
               </div>
-              <div className="text-xs text-gray-600 font-semibold">Meta: {kpiData.metaDiasFirmas} días</div>
+              <div className="text-[10px] text-gray-600 font-semibold">Meta: {kpiData.metaDiasFirmas}d</div>
             </div>
 
             {/* 2. Desistimientos % */}
-            <div className="border-r border-gray-200 pr-4">
-              <div className="text-xs text-gray-500 uppercase mb-2 font-semibold">Desist. %</div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.porcentajeDesistimientos}%</div>
-              <div className="flex items-center gap-1 mb-2">
-                <div className={`text-xs font-bold ${kpiData.porcentajeDesistimientos <= kpiData.metaPorcentajeDesistimientos ? 'text-green-600' : 'text-red-600'}`}>
+            <div className="border-r border-gray-200 pr-2">
+              <div className="text-[10px] text-gray-500 uppercase mb-1 font-semibold">Desist. %</div>
+              <div className="text-2xl font-black text-gray-900 mb-0.5">{kpiData.porcentajeDesistimientos}%</div>
+              <div className="flex items-center gap-1 mb-1">
+                <div className={`text-[10px] font-bold ${kpiData.porcentajeDesistimientos <= kpiData.metaPorcentajeDesistimientos ? 'text-green-600' : 'text-red-600'}`}>
                   {kpiData.porcentajeDesistimientos <= kpiData.metaPorcentajeDesistimientos ? '▼' : '▲'} {Math.abs(kpiData.porcentajeDesistimientos - kpiData.metaPorcentajeDesistimientos)}%
                 </div>
-                <div className="text-xs text-gray-400">vs meta</div>
               </div>
-              <div className="text-xs text-gray-600 font-semibold">{kpiData.desistimientosDelMes} casos</div>
+              <div className="text-[10px] text-gray-600 font-semibold">{kpiData.desistimientosDelMes} casos</div>
             </div>
 
             {/* 3. Distribución Pagos */}
-            <div className="border-r border-gray-200 pr-4">
-              <div className="text-xs text-gray-500 uppercase mb-2 font-semibold">Forma de Pago</div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</div>
-              <div className="text-xs text-gray-600 mb-1 font-semibold">Contado</div>
-              <div className="text-xs text-gray-600">💳 Crédito: {Math.round((kpiData.formaPago.credito / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</div>
-              <div className="text-xs text-gray-600">🏦 Hipotec: {Math.round((kpiData.formaPago.hipotecario / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</div>
+            <div className="border-r border-gray-200 pr-2">
+              <div className="text-[10px] text-gray-500 uppercase mb-1 font-semibold">Forma de Pago</div>
+              <div className="text-2xl font-black text-gray-900 mb-0.5">{Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</div>
+              <div className="text-[10px] text-gray-600 mb-0.5 font-semibold">Contado</div>
+              <div className="text-[10px] text-gray-600">Créd: {Math.round((kpiData.formaPago.credito / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</div>
+              <div className="text-[10px] text-gray-600">Hip: {Math.round((kpiData.formaPago.hipotecario / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</div>
             </div>
 
             {/* 4. Cobranza */}
-            <div className="border-r border-gray-200 pr-4">
-              <div className="text-xs text-gray-500 uppercase mb-2 font-semibold">Cobranza</div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.cobradoReal}</div>
-              <div className="text-xs text-gray-600 mb-2 font-semibold">${(kpiData.cobradoRealCLP / 1000000).toFixed(0)}M cobrado</div>
-              <div className="text-xs text-gray-600">Esperado: {kpiData.cobranzaEsperada} u.</div>
-              <div className={`text-xs font-bold ${kpiData.cobradoReal >= kpiData.cobranzaEsperada ? 'text-green-600' : 'text-red-600'}`}>
-                {kpiData.cobradoReal >= kpiData.cobranzaEsperada ? '+' : ''}{kpiData.cobradoReal - kpiData.cobranzaEsperada} unid.
+            <div className="border-r border-gray-200 pr-2">
+              <div className="text-[10px] text-gray-500 uppercase mb-1 font-semibold">Cobranza</div>
+              <div className="text-2xl font-black text-gray-900 mb-0.5">{kpiData.cobradoReal}</div>
+              <div className="text-[10px] text-gray-600 mb-1 font-semibold">${(kpiData.cobradoRealCLP / 1000000).toFixed(0)}M cobrado</div>
+              <div className="text-[10px] text-gray-600">Esp: {kpiData.cobranzaEsperada} u.</div>
+              <div className={`text-[10px] font-bold ${kpiData.cobradoReal >= kpiData.cobranzaEsperada ? 'text-green-600' : 'text-red-600'}`}>
+                {kpiData.cobradoReal >= kpiData.cobranzaEsperada ? '+' : ''}{kpiData.cobradoReal - kpiData.cobranzaEsperada}
               </div>
             </div>
 
             {/* 5. Conversión */}
-            <div className="border-r border-gray-200 pr-4">
-              <div className="text-xs text-gray-500 uppercase mb-2 font-semibold">Conversión</div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.conversionReservasAFirmas}%</div>
-              <div className="text-xs text-gray-600 mb-2 font-semibold">reservas → firmas</div>
-              <div className={`text-xs font-bold ${kpiData.conversionReservasAFirmas >= kpiData.metaConversion ? 'text-green-600' : 'text-red-600'}`}>
+            <div className="border-r border-gray-200 pr-2">
+              <div className="text-[10px] text-gray-500 uppercase mb-1 font-semibold">Conversión</div>
+              <div className="text-2xl font-black text-gray-900 mb-0.5">{kpiData.conversionReservasAFirmas}%</div>
+              <div className="text-[10px] text-gray-600 mb-1 font-semibold">res → firmas</div>
+              <div className={`text-[10px] font-bold ${kpiData.conversionReservasAFirmas >= kpiData.metaConversion ? 'text-green-600' : 'text-red-600'}`}>
                 {kpiData.conversionReservasAFirmas >= kpiData.metaConversion ? '+' : ''}{kpiData.conversionReservasAFirmas - kpiData.metaConversion}% vs meta
               </div>
             </div>
 
             {/* 6. Hipotecarios */}
             <div>
-              <div className="text-xs text-gray-500 uppercase mb-2 font-semibold">Hipotecarios</div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.diasTramitacionHipotecario}</div>
-              <div className="text-xs text-gray-600 mb-2 font-semibold">días tramitación</div>
-              <div className="text-xs text-gray-600">${(kpiData.hipotecariosPendientesCLP / 1000000).toFixed(0)}M pend.</div>
-              <div className={`text-xs font-bold ${kpiData.diasTramitacionHipotecario <= kpiData.metaDiasTramitacionHipotecario ? 'text-green-600' : 'text-red-600'}`}>
+              <div className="text-[10px] text-gray-500 uppercase mb-1 font-semibold">Hipotecarios</div>
+              <div className="text-2xl font-black text-gray-900 mb-0.5">{kpiData.diasTramitacionHipotecario}</div>
+              <div className="text-[10px] text-gray-600 mb-1 font-semibold">días tram.</div>
+              <div className="text-[10px] text-gray-600">${(kpiData.hipotecariosPendientesCLP / 1000000).toFixed(0)}M pend.</div>
+              <div className={`text-[10px] font-bold ${kpiData.diasTramitacionHipotecario <= kpiData.metaDiasTramitacionHipotecario ? 'text-green-600' : 'text-red-600'}`}>
                 Meta: {kpiData.metaDiasTramitacionHipotecario}d
               </div>
             </div>
           </div>
         </div>
 
-        {/* Gráficos */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 mt-2 flex-1 min-h-0">
+        {/* Gráficos - MÁS COMPACTOS */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-1.5 mt-1.5 flex-1 min-h-0">
           <MonthlyTrendChart
             data={{
               reservasDelMes: kpiData.reservasDelMes,
