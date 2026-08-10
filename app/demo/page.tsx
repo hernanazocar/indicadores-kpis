@@ -17,19 +17,18 @@ export default function DemoPage() {
   const handleRefresh = () => {
     setIsLoading(true);
     setTimeout(() => {
-      setKpiData(generateRandomKPIData());
+      setKpiData(mockKPIData); // Usar datos fijos, no aleatorios
       setIsLoading(false);
     }, 1000);
   };
 
-  // Auto-refresh cada 30 segundos en modo demo
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setKpiData(generateRandomKPIData());
-    }, 30000);
-
-    return () => clearInterval(interval);
-  }, []);
+  // Auto-refresh desactivado - datos fijos
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setKpiData(generateRandomKPIData());
+  //   }, 30000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="h-screen overflow-hidden bg-emerald-900">

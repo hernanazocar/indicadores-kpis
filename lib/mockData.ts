@@ -1,41 +1,41 @@
 import { KPIData } from './excelService';
 
 export const mockKPIData: KPIData = {
-  metaDelMes: 50,
-  metaDelMesCLP: 6250000000, // 50 * 125M promedio
-  reservasDelMes: 45,
-  reservasDelMesCLP: 5625000000, // 45 * 125M promedio
-  firmasDelMes: 32,
-  firmasDelMesCLP: 4000000000, // 32 * 125M promedio
-  desistimientosDelMes: 5,
-  desistimientosDelMesCLP: 625000000, // 5 * 125M promedio
+  metaDelMes: 30,
+  metaDelMesCLP: 922599998,
+  reservasDelMes: 9,
+  reservasDelMesCLP: 468100000,
+  firmasDelMes: 1,
+  firmasDelMesCLP: 41000000,
+  desistimientosDelMes: 2,
+  desistimientosDelMesCLP: 104800000,
   diasFirmasDelMes: 7,
   metaDiasFirmas: 30,
-  porcentajeDesistimientos: 11, // 5/45 * 100
+  porcentajeDesistimientos: 22, // 2/9 * 100
   metaPorcentajeDesistimientos: 10,
-  porcentajeContado: 37, // 12/32 * 100
-  porcentajeCredito: 47, // 15/32 * 100
-  cobradoReal: 18, // Lo que realmente se ha cobrado
-  cobradoRealCLP: 2250000000,
-  cobranzaEsperada: 25, // Lo que deberíamos haber cobrado a la fecha
-  cobranzaEsperadaCLP: 3125000000,
-  conversionReservasAFirmas: 71, // 32/45 * 100
+  porcentajeContado: 100, // 1/1 * 100 (solo hay 1 firma)
+  porcentajeCredito: 0,
+  cobradoReal: 1, // 1 firma cobrada
+  cobradoRealCLP: 41000000,
+  cobranzaEsperada: 1, // Lo que deberíamos haber cobrado a la fecha
+  cobranzaEsperadaCLP: 41000000,
+  conversionReservasAFirmas: 11, // 1/9 * 100
   metaConversion: 65,
   formaPago: {
-    contado: 12,
-    contadoCLP: 1500000000, // 12 * 125M
-    credito: 15,
-    creditoCLP: 1875000000, // 15 * 125M
-    hipotecario: 5,
-    hipotecarioCLP: 625000000, // 5 * 125M
+    contado: 1,
+    contadoCLP: 41000000,
+    credito: 0,
+    creditoCLP: 0,
+    hipotecario: 0,
+    hipotecarioCLP: 0,
   },
-  hipotecariosPendientesCLP: 1000000000, // Plata pendiente de cobro
-  diasTramitacionHipotecario: 38, // Días promedio de tramitación
-  metaDiasTramitacionHipotecario: 45, // Meta: máximo 45 días
+  hipotecariosPendientesCLP: 0, // No hay hipotecarios pendientes
+  diasTramitacionHipotecario: 0, // No hay tramitaciones
+  metaDiasTramitacionHipotecario: 45,
   otros: {
-    conversion: 71.1,
-    promedioReserva: 125000000,
-    ticketPromedio: 98500000,
+    conversion: 11.1,
+    promedioReserva: 52011111, // 468.100.000 / 9
+    ticketPromedio: 41000000,
   },
   ultimaActualizacion: new Date().toISOString(),
 };
