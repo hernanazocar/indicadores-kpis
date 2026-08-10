@@ -3,15 +3,15 @@ import { KPIData } from './excelService';
 export const mockKPIData: KPIData = {
   metaDelMes: 30,
   metaDelMesCLP: 922599998,
-  reservasDelMes: 9,
-  reservasDelMesCLP: 468100000,
+  reservasDelMes: 14,
+  reservasDelMesCLP: 707600000,
   firmasDelMes: 1,
   firmasDelMesCLP: 41000000,
   desistimientosDelMes: 2,
   desistimientosDelMesCLP: 104800000,
   diasFirmasDelMes: 7,
   metaDiasFirmas: 30,
-  porcentajeDesistimientos: 22, // 2/9 * 100
+  porcentajeDesistimientos: 14, // 2/14 * 100
   metaPorcentajeDesistimientos: 10,
   porcentajeContado: 100, // 1/1 * 100 (solo hay 1 firma)
   porcentajeCredito: 0,
@@ -19,7 +19,7 @@ export const mockKPIData: KPIData = {
   cobradoRealCLP: 41000000,
   cobranzaEsperada: 1, // Lo que deberíamos haber cobrado a la fecha
   cobranzaEsperadaCLP: 41000000,
-  conversionReservasAFirmas: 11, // 1/9 * 100
+  conversionReservasAFirmas: 7, // 1/14 * 100
   metaConversion: 65,
   formaPago: {
     contado: 1,
@@ -33,8 +33,8 @@ export const mockKPIData: KPIData = {
   diasTramitacionHipotecario: 0, // No hay tramitaciones
   metaDiasTramitacionHipotecario: 45,
   otros: {
-    conversion: 11.1,
-    promedioReserva: 52011111, // 468.100.000 / 9
+    conversion: 7.1,
+    promedioReserva: 50542857, // 707.600.000 / 14
     ticketPromedio: 41000000,
   },
   ultimaActualizacion: new Date().toISOString(),
