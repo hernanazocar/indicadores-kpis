@@ -4,38 +4,38 @@ export const mockKPIData: KPIData = {
   metaDelMes: 30,
   metaDelMesCLP: 922599998,
   reservasDelMes: 14,
-  reservasDelMesCLP: 764500000, // Estimado
+  reservasDelMesCLP: 764500000,
   firmasDelMes: 2,
   firmasDelMesCLP: 75900000,
   desistimientosDelMes: 5,
-  desistimientosDelMesCLP: 263400000, // Estimado: 5 * promedio
-  diasFirmasDelMes: 0, // Sin firmas registradas aún con tiempo
-  metaDiasFirmas: 22,
-  porcentajeDesistimientos: 36, // 35.7% redondeado
-  metaPorcentajeDesistimientos: 32, // Meta máxima
-  porcentajeContado: 100, // 100% según tabla
-  porcentajeCredito: 0, // 0% según tabla
-  cobradoReal: 2, // 2 firmas cobradas
-  cobradoRealCLP: 75900000,
-  cobranzaEsperada: 2, // Lo que deberíamos haber cobrado a la fecha
-  cobranzaEsperadaCLP: 75900000,
-  conversionReservasAFirmas: 14, // 2/14 * 100 = 14.3%
+  desistimientosDelMesCLP: 263400000,
+  diasFirmasDelMes: 25, // Vamos en 25 días
+  metaDiasFirmas: 22, // Meta es 22 días
+  porcentajeDesistimientos: 36, // 36.4% redondeado
+  metaPorcentajeDesistimientos: 32, // Meta máxima 32%
+  porcentajeContado: 100, // 100% contado
+  porcentajeCredito: 0, // 0% crédito directo
+  cobradoReal: 0, // Cobranza en 0
+  cobradoRealCLP: 0,
+  cobranzaEsperada: 0, // Cobranza esperada en 0
+  cobranzaEsperadaCLP: 0,
+  conversionReservasAFirmas: 0, // Conversión en 0% (firmas del mes / reservas del mes)
   metaConversion: 65,
   formaPago: {
     contado: 2, // 100% contado
     contadoCLP: 75900000,
-    credito: 0, // 0% crédito
+    credito: 0, // 0% crédito directo
     creditoCLP: 0,
-    hipotecario: 0,
+    hipotecario: 0, // 0% crédito hipotecario
     hipotecarioCLP: 0,
   },
-  hipotecariosPendientesCLP: 0, // No hay hipotecarios pendientes
-  diasTramitacionHipotecario: 0, // No hay tramitaciones
+  hipotecariosPendientesCLP: 0,
+  diasTramitacionHipotecario: 0,
   metaDiasTramitacionHipotecario: 45,
   otros: {
-    conversion: 14.3,
-    promedioReserva: 54607143, // 764.500.000 / 14
-    ticketPromedio: 37950000, // 75.900.000 / 2
+    conversion: 0,
+    promedioReserva: 54607143,
+    ticketPromedio: 37950000,
   },
   ultimaActualizacion: new Date().toISOString(),
 };

@@ -132,10 +132,20 @@ export default function DemoPage() {
             {/* 3. Distribución Pagos */}
             <div className="border-r border-gray-200 pr-2">
               <div className="text-[10px] text-gray-500 uppercase mb-1 font-semibold">Forma de Pago</div>
-              <div className="text-2xl font-black text-gray-900 mb-0.5">{Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</div>
-              <div className="text-[10px] text-gray-600 mb-0.5 font-semibold">Contado</div>
-              <div className="text-[10px] text-gray-600">Créd: {Math.round((kpiData.formaPago.credito / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</div>
-              <div className="text-[10px] text-gray-600">Hip: {Math.round((kpiData.formaPago.hipotecario / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</div>
+              <div className="space-y-0.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] text-gray-600">💵 Contado:</span>
+                  <span className="text-sm font-black text-green-600">{Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] text-gray-600">💳 Créd. Dir:</span>
+                  <span className="text-sm font-black text-gray-900">{Math.round((kpiData.formaPago.credito / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] text-gray-600">🏦 Créd. Hip:</span>
+                  <span className="text-sm font-black text-gray-900">{Math.round((kpiData.formaPago.hipotecario / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
+                </div>
+              </div>
             </div>
 
             {/* 4. Cobranza */}
