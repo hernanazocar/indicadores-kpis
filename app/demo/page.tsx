@@ -142,24 +142,24 @@ export default function DemoPage() {
 
             {/* 3. Distribución Pagos */}
             <div className="border-r border-gray-200 pr-3">
-              <div className="flex items-center gap-1.5 mb-1">
+              <div className="flex items-center gap-1.5 mb-0.5">
                 <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                 </svg>
                 <div className="text-xs text-gray-500 uppercase font-semibold">Forma de Pago</div>
               </div>
-              <div className="space-y-1.5">
+              <div className="space-y-0">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] text-gray-600 font-semibold">Contado:</span>
-                  <span className="text-3xl font-black text-green-600">{Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
+                  <span className="text-[9px] text-gray-600 font-semibold">Contado:</span>
+                  <span className="text-2xl font-black text-green-600">{Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] text-gray-600 font-semibold">Créd. Directo:</span>
-                  <span className="text-3xl font-black text-gray-900">{Math.round((kpiData.formaPago.credito / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
+                  <span className="text-[9px] text-gray-600 font-semibold">Créd. Directo:</span>
+                  <span className="text-2xl font-black text-gray-900">{Math.round((kpiData.formaPago.credito / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] text-gray-600 font-semibold">Créd. Hipotecario:</span>
-                  <span className="text-3xl font-black text-gray-900">{Math.round((kpiData.formaPago.hipotecario / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
+                  <span className="text-[9px] text-gray-600 font-semibold">Créd. Hipotecario:</span>
+                  <span className="text-2xl font-black text-gray-900">{Math.round((kpiData.formaPago.hipotecario / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
               </div>
             </div>
