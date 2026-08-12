@@ -249,6 +249,13 @@ export default function KPICard({
               </div>
             )}
 
+            {/* Meta debajo del valor */}
+            {metaValue && variant !== 'meta' && (
+              <div className={`text-[10px] font-semibold ${colors.subtitleColor} mt-1`}>
+                Meta: {metaValue.toLocaleString('es-CL')} {showPercentage ? '%' : 'unid.'}
+              </div>
+            )}
+
             {/* Barra de Progreso */}
             {metaValue && variant !== 'meta' && (
               <div className="mt-2">

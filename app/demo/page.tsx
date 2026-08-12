@@ -109,24 +109,24 @@ export default function DemoPage() {
             <div className="border-r border-gray-200 pr-2">
               <div className="text-[10px] text-gray-500 uppercase mb-1 font-semibold">Días Firmas</div>
               <div className="text-2xl font-black text-gray-900 mb-0.5">{kpiData.diasFirmasDelMes}</div>
-              <div className="flex items-center gap-1 mb-1">
+              <div className="text-[10px] text-gray-600 font-semibold mb-1">Meta: {kpiData.metaDiasFirmas} días</div>
+              <div className="flex items-center gap-1">
                 <div className={`text-[10px] font-bold ${kpiData.diasFirmasDelMes <= kpiData.metaDiasFirmas ? 'text-green-600' : 'text-red-600'}`}>
-                  {kpiData.diasFirmasDelMes <= kpiData.metaDiasFirmas ? '▼' : '▲'} {Math.abs(Math.round(((kpiData.diasFirmasDelMes - kpiData.metaDiasFirmas) / kpiData.metaDiasFirmas) * 100))}%
+                  {kpiData.diasFirmasDelMes <= kpiData.metaDiasFirmas ? '▼' : '▲'} {Math.abs(Math.round(((kpiData.diasFirmasDelMes - kpiData.metaDiasFirmas) / kpiData.metaDiasFirmas) * 100))}% vs meta
                 </div>
               </div>
-              <div className="text-[10px] text-gray-600 font-semibold">Meta: {kpiData.metaDiasFirmas}d</div>
             </div>
 
             {/* 2. Desistimientos % */}
             <div className="border-r border-gray-200 pr-2">
               <div className="text-[10px] text-gray-500 uppercase mb-1 font-semibold">Desist. %</div>
               <div className="text-2xl font-black text-gray-900 mb-0.5">{kpiData.porcentajeDesistimientos}%</div>
-              <div className="flex items-center gap-1 mb-1">
+              <div className="text-[10px] text-gray-600 font-semibold mb-1">Meta: {kpiData.metaPorcentajeDesistimientos}% máx.</div>
+              <div className="flex items-center gap-1">
                 <div className={`text-[10px] font-bold ${kpiData.porcentajeDesistimientos <= kpiData.metaPorcentajeDesistimientos ? 'text-green-600' : 'text-red-600'}`}>
-                  {kpiData.porcentajeDesistimientos <= kpiData.metaPorcentajeDesistimientos ? '▼' : '▲'} {Math.abs(kpiData.porcentajeDesistimientos - kpiData.metaPorcentajeDesistimientos)}%
+                  {kpiData.porcentajeDesistimientos <= kpiData.metaPorcentajeDesistimientos ? '▼' : '▲'} {Math.abs(kpiData.porcentajeDesistimientos - kpiData.metaPorcentajeDesistimientos)}% vs meta
                 </div>
               </div>
-              <div className="text-[10px] text-gray-600 font-semibold">{kpiData.desistimientosDelMes} casos</div>
             </div>
 
             {/* 3. Distribución Pagos */}
