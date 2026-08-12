@@ -1,8 +1,8 @@
 import { KPIData } from './excelService';
 
 export const mockKPIData: KPIData = {
-  metaDelMes: 30,
-  metaDelMesCLP: 922599998,
+  metaDelMes: 45,
+  metaDelMesCLP: 1383899997,
   reservasDelMes: 14,
   reservasDelMesCLP: 764500000,
   firmasDelMes: 6,
