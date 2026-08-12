@@ -42,7 +42,7 @@ export default function DemoPage() {
         {/* Header ejecutivo */}
         <div className="flex items-center justify-between mb-1.5 flex-shrink-0">
           <div>
-            <h1 className="text-lg font-bold text-white">KPIs Dashboard</h1>
+            <h1 className="text-lg font-bold text-white">Inmobiliaria Chicureo</h1>
             <p className="text-[10px] text-gray-400">Actualizado: {new Date().toLocaleString('es-CL', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
           </div>
           <button
