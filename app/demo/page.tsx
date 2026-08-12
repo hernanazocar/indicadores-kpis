@@ -180,7 +180,10 @@ export default function DemoPage() {
             <div className="border-r border-gray-200 pr-3">
               <div className="text-xs text-gray-500 uppercase mb-1 font-semibold">Conversión</div>
               <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.conversionReservasAFirmas}%</div>
-              <div className="text-[10px] text-gray-600 font-semibold">Reservas → Firmas</div>
+              <div className="text-[10px] text-gray-600 font-semibold mb-0.5">Reservas → Firmas</div>
+              <div className="text-[9px] text-gray-500">
+                {kpiData.firmasDelMes} firmas de {kpiData.reservasDelMes} reservas del mes
+              </div>
             </div>
 
             {/* 6. Hipotecarios */}
