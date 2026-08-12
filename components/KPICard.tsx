@@ -164,8 +164,12 @@ export default function KPICard({
     gapCLP = (valueCLP || 0) - metaValueCLP;
   }
 
-  // Calcular porcentaje de progreso
-  const progressPercent = metaValue ? Math.min(Math.round((numValue / metaValue) * 100), 100) : 0;
+  // Calcular porcentaje de progreso (siempre sobre CLP si está disponible)
+  const progressPercent = metaValueCLP && valueCLP
+    ? Math.min(Math.round((valueCLP / metaValueCLP) * 100), 100)
+    : metaValue
+      ? Math.min(Math.round((numValue / metaValue) * 100), 100)
+      : 0;
 
   // Determinar color del gap según rendimiento
   const getGapColor = () => {
