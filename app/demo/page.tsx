@@ -129,7 +129,10 @@ export default function DemoPage() {
             <div className="border-r border-gray-200 pr-1.5">
               <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Desist. %</div>
               <div className="text-xl font-black text-gray-900 mb-0.5">{kpiData.porcentajeDesistimientos}%</div>
-              <div className="text-[9px] text-gray-600 font-semibold">Meta: {kpiData.metaPorcentajeDesistimientos}%</div>
+              <div className="text-[9px] text-gray-600 font-semibold mb-0.5">Meta: {kpiData.metaPorcentajeDesistimientos}%</div>
+              <div className={`text-[9px] font-bold ${kpiData.porcentajeDesistimientos <= kpiData.metaPorcentajeDesistimientos ? 'text-green-600' : 'text-red-600'}`}>
+                {Math.round((kpiData.metaPorcentajeDesistimientos / kpiData.porcentajeDesistimientos) * 100)}% cumpl.
+              </div>
             </div>
 
             {/* 3. Distribución Pagos */}
@@ -137,15 +140,31 @@ export default function DemoPage() {
               <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Forma Pago</div>
               <div className="space-y-0.5">
                 <div className="flex items-center justify-between">
-                  <span className="text-[9px] text-gray-600">💵 Cont:</span>
+                  <div className="flex items-center gap-0.5">
+                    <svg className="w-2.5 h-2.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+                      <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd"/>
+                    </svg>
+                    <span className="text-[9px] text-gray-600">Cont:</span>
+                  </div>
                   <span className="text-xs font-black text-green-600">{Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[9px] text-gray-600">💳 Cr.D:</span>
+                  <div className="flex items-center gap-0.5">
+                    <svg className="w-2.5 h-2.5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+                    </svg>
+                    <span className="text-[9px] text-gray-600">Cr.D:</span>
+                  </div>
                   <span className="text-xs font-black text-gray-900">{Math.round((kpiData.formaPago.credito / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[9px] text-gray-600">🏦 Cr.H:</span>
+                  <div className="flex items-center gap-0.5">
+                    <svg className="w-2.5 h-2.5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd"/>
+                    </svg>
+                    <span className="text-[9px] text-gray-600">Cr.H:</span>
+                  </div>
                   <span className="text-xs font-black text-gray-900">{Math.round((kpiData.formaPago.hipotecario / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
               </div>
