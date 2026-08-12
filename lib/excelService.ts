@@ -3,6 +3,8 @@ import { Client } from '@microsoft/microsoft-graph-client';
 export interface KPIData {
   metaDelMes: number;
   metaDelMesCLP: number;
+  metaReservas: number;
+  metaReservasCLP: number;
   reservasDelMes: number;
   reservasDelMesCLP: number;
   firmasDelMes: number;
