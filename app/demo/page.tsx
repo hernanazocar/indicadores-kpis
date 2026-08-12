@@ -119,7 +119,10 @@ export default function DemoPage() {
             <div className="border-r border-gray-200 pr-1.5">
               <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Días Firmas</div>
               <div className="text-xl font-black text-gray-900 mb-0.5">{kpiData.diasFirmasDelMes}</div>
-              <div className="text-[9px] text-gray-600 font-semibold">Meta: {kpiData.metaDiasFirmas}d</div>
+              <div className="text-[9px] text-gray-600 font-semibold mb-0.5">Meta: {kpiData.metaDiasFirmas}d</div>
+              <div className={`text-[9px] font-bold ${kpiData.diasFirmasDelMes <= kpiData.metaDiasFirmas ? 'text-green-600' : 'text-red-600'}`}>
+                {Math.round((kpiData.metaDiasFirmas / kpiData.diasFirmasDelMes) * 100)}% cumpl.
+              </div>
             </div>
 
             {/* 2. Desistimientos % */}
