@@ -18,6 +18,7 @@ interface KPICardProps {
   reverseGap?: boolean; // Para desistimientos donde menor es mejor
   showPercentage?: boolean; // Para mostrar como porcentaje
   additionalInfo?: string; // Info adicional debajo del gap
+  progressBasedOnCLP?: boolean; // Si true, % cumplimiento sobre CLP; si false, sobre unidades
 }
 
 export default function KPICard({
@@ -35,6 +36,7 @@ export default function KPICard({
   reverseGap = false,
   showPercentage = false,
   additionalInfo,
+  progressBasedOnCLP = false,
 }: KPICardProps) {
   const variants = {
     primary: {
@@ -164,8 +166,8 @@ export default function KPICard({
     gapCLP = (valueCLP || 0) - metaValueCLP;
   }
 
-  // Calcular porcentaje de progreso (siempre sobre CLP si está disponible)
-  const progressPercent = metaValueCLP && valueCLP
+  // Calcular porcentaje de progreso (según configuración)
+  const progressPercent = progressBasedOnCLP && metaValueCLP && valueCLP
     ? Math.min(Math.round((valueCLP / metaValueCLP) * 100), 100)
     : metaValue
       ? Math.min(Math.round((numValue / metaValue) * 100), 100)
