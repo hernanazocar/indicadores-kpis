@@ -99,9 +99,9 @@ export default function DemoPage() {
             title="Desistimientos"
             value={kpiData.desistimientosDelMes}
             valueCLP={kpiData.desistimientosDelMesCLP}
-            metaValue={kpiData.metaDelMes}
-            metaValueCLP={kpiData.metaDelMesCLP}
-            additionalInfo={`${kpiData.porcentajeDesistimientos}% del total (Meta: ${kpiData.metaPorcentajeDesistimientos}% máx.)`}
+            metaValue={kpiData.metaPorcentajeDesistimientos}
+            showPercentage={false}
+            additionalInfo={`${kpiData.porcentajeDesistimientos}% del total`}
             icon={
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -119,25 +119,25 @@ export default function DemoPage() {
             <div className="border-r border-gray-200 pr-1.5">
               <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Días Firmas</div>
               <div className="text-xl font-black text-gray-900 mb-0.5">{kpiData.diasFirmasDelMes}</div>
-              <div className="text-[9px] text-gray-600 font-semibold mb-0.5">Meta: {kpiData.metaDiasFirmas}d</div>
-              <div className={`text-[9px] font-bold ${kpiData.diasFirmasDelMes <= kpiData.metaDiasFirmas ? 'text-green-600' : 'text-red-600'}`}>
-                {Math.round((kpiData.metaDiasFirmas / kpiData.diasFirmasDelMes) * 100)}% cumpl.
+              <div className="text-[8px] text-gray-600 font-semibold mb-0.5">Meta: {kpiData.metaDiasFirmas} días</div>
+              <div className={`text-[8px] font-bold ${kpiData.diasFirmasDelMes <= kpiData.metaDiasFirmas ? 'text-green-600' : 'text-red-600'}`}>
+                {Math.round((kpiData.metaDiasFirmas / kpiData.diasFirmasDelMes) * 100)}% cumplimiento
               </div>
             </div>
 
             {/* 2. Desistimientos % */}
             <div className="border-r border-gray-200 pr-1.5">
-              <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Desist. %</div>
+              <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Desistimientos %</div>
               <div className="text-xl font-black text-gray-900 mb-0.5">{kpiData.porcentajeDesistimientos}%</div>
-              <div className="text-[9px] text-gray-600 font-semibold mb-0.5">Meta: {kpiData.metaPorcentajeDesistimientos}%</div>
-              <div className={`text-[9px] font-bold ${kpiData.porcentajeDesistimientos <= kpiData.metaPorcentajeDesistimientos ? 'text-green-600' : 'text-red-600'}`}>
-                {Math.round((kpiData.metaPorcentajeDesistimientos / kpiData.porcentajeDesistimientos) * 100)}% cumpl.
+              <div className="text-[8px] text-gray-600 font-semibold mb-0.5">Meta: {kpiData.metaPorcentajeDesistimientos}%</div>
+              <div className={`text-[8px] font-bold ${kpiData.porcentajeDesistimientos <= kpiData.metaPorcentajeDesistimientos ? 'text-green-600' : 'text-red-600'}`}>
+                {Math.round((kpiData.metaPorcentajeDesistimientos / kpiData.porcentajeDesistimientos) * 100)}% cumplimiento
               </div>
             </div>
 
             {/* 3. Distribución Pagos */}
             <div className="border-r border-gray-200 pr-1.5">
-              <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Forma Pago</div>
+              <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Forma de Pago</div>
               <div className="space-y-0.5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-0.5">
@@ -145,7 +145,7 @@ export default function DemoPage() {
                       <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
                       <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd"/>
                     </svg>
-                    <span className="text-[9px] text-gray-600">Cont:</span>
+                    <span className="text-[8px] text-gray-600">Contado:</span>
                   </div>
                   <span className="text-xs font-black text-green-600">{Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
@@ -154,7 +154,7 @@ export default function DemoPage() {
                     <svg className="w-2.5 h-2.5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
                     </svg>
-                    <span className="text-[9px] text-gray-600">Cr.D:</span>
+                    <span className="text-[8px] text-gray-600">Créd. Directo:</span>
                   </div>
                   <span className="text-xs font-black text-gray-900">{Math.round((kpiData.formaPago.credito / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
@@ -163,7 +163,7 @@ export default function DemoPage() {
                     <svg className="w-2.5 h-2.5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd"/>
                     </svg>
-                    <span className="text-[9px] text-gray-600">Cr.H:</span>
+                    <span className="text-[8px] text-gray-600">Créd. Hipotecario:</span>
                   </div>
                   <span className="text-xs font-black text-gray-900">{Math.round((kpiData.formaPago.hipotecario / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
@@ -175,9 +175,9 @@ export default function DemoPage() {
               <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Cobranza</div>
               <div className="text-xl font-black text-gray-900 mb-0.5">{Math.round((kpiData.cobradoRealCLP / kpiData.cobranzaEsperadaCLP) * 100)}%</div>
               <div className="text-[8px] text-gray-600 font-semibold mb-0.5">Cobrado: ${kpiData.cobradoRealCLP.toLocaleString('es-CL')}</div>
-              <div className="text-[8px] text-gray-600 mb-0.5">Meta: ${kpiData.cobranzaEsperadaCLP.toLocaleString('es-CL')}</div>
+              <div className="text-[8px] text-gray-600 mb-0.5">Esperado: ${kpiData.cobranzaEsperadaCLP.toLocaleString('es-CL')}</div>
               <div className={`text-[8px] font-bold ${kpiData.cobradoRealCLP >= kpiData.cobranzaEsperadaCLP ? 'text-green-600' : 'text-red-600'}`}>
-                Por cobrar: ${(kpiData.cobranzaEsperadaCLP - kpiData.cobradoRealCLP).toLocaleString('es-CL')}
+                Gap: -${(kpiData.cobranzaEsperadaCLP - kpiData.cobradoRealCLP).toLocaleString('es-CL')}
               </div>
             </div>
 
@@ -185,14 +185,14 @@ export default function DemoPage() {
             <div className="border-r border-gray-200 pr-1.5">
               <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Conversión</div>
               <div className="text-xl font-black text-gray-900 mb-0.5">{kpiData.conversionReservasAFirmas}%</div>
-              <div className="text-[9px] text-gray-600 font-semibold">res→firmas</div>
+              <div className="text-[8px] text-gray-600 font-semibold">Reservas → Firmas</div>
             </div>
 
             {/* 6. Hipotecarios */}
             <div>
               <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Hipotecarios</div>
               <div className="text-xl font-black text-gray-900 mb-0.5">{kpiData.diasTramitacionHipotecario}</div>
-              <div className="text-[9px] text-gray-600 font-semibold">días tram.</div>
+              <div className="text-[8px] text-gray-600 font-semibold">Días tramitación</div>
             </div>
           </div>
         </div>

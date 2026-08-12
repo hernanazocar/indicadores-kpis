@@ -193,22 +193,22 @@ export default function KPICard({
       className="group h-full"
     >
       <div className={`relative ${colors.bgColor} ${colors.borderColor} rounded-lg overflow-hidden transition-all duration-300 h-full hover:shadow-2xl shadow-lg`}>
-        <div className="p-1.5">
-          <div className="flex items-center justify-between mb-1">
-            <div className="flex items-center gap-1">
+        <div className="p-2.5">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-1.5">
               {icon && (
-                <div className={`p-0.5 rounded-lg ${colors.iconBg} flex-shrink-0`}>
+                <div className={`p-1 rounded-lg ${colors.iconBg} flex-shrink-0`}>
                   <div className={colors.iconColor}>
                     {icon}
                   </div>
                 </div>
               )}
-              <p className={`text-[9px] font-bold ${colors.titleColor} uppercase tracking-wide`}>
+              <p className={`text-[11px] font-bold ${colors.titleColor} uppercase tracking-wide`}>
                 {title}
               </p>
             </div>
             {metaValue && progressPercent !== undefined && (
-              <span className={`px-1 py-0.5 rounded text-[9px] font-bold ${
+              <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
                 progressPercent >= 100 ? 'bg-green-100 text-green-700' :
                 progressPercent >= 70 ? 'bg-blue-100 text-blue-700' :
                 progressPercent >= 50 ? 'bg-amber-100 text-amber-700' :
@@ -219,39 +219,39 @@ export default function KPICard({
             )}
           </div>
 
-          <div className="space-y-0.5">
+          <div className="space-y-1">
             {/* Valor en unidades */}
             <motion.div
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: delay + 0.2 }}
-              className="flex items-baseline gap-1"
+              className="flex items-baseline gap-1.5"
             >
-              <div className={`${variant === 'warning' ? 'text-xl' : 'text-2xl'} font-black ${colors.valueColor}`}>
+              <div className={`${variant === 'warning' ? 'text-3xl' : 'text-4xl'} font-black ${colors.valueColor}`}>
                 {typeof value === 'number' ? value.toLocaleString('es-CL') : value}{showPercentage ? '%' : ''}
               </div>
               {subtitle && (
-                <div className={`text-[9px] font-semibold ${colors.subtitleColor}`}>
+                <div className={`text-[10px] font-semibold ${colors.subtitleColor}`}>
                   {subtitle}
                 </div>
               )}
             </motion.div>
             {!subtitle && !showPercentage && (
-              <div className={`text-[9px] ${colors.subtitleColor} mt-0`}>
+              <div className={`text-[10px] ${colors.subtitleColor} mt-0.5`}>
                 {showPercentage ? '' : 'unidades'}
               </div>
             )}
 
             {/* Valor en CLP */}
             {valueCLP !== undefined && valueCLP > 0 && (
-              <div className={`text-[10px] font-bold ${colors.clpColor} mt-0.5`}>
+              <div className={`text-xs font-bold ${colors.clpColor} mt-1`}>
                 {formatCLP(valueCLP)}
               </div>
             )}
 
             {/* Meta debajo del valor */}
             {metaValue && variant !== 'meta' && (
-              <div className={`text-[9px] font-semibold ${colors.subtitleColor} mt-0.5`}>
+              <div className={`text-[10px] font-semibold ${colors.subtitleColor} mt-1`}>
                 Meta: {metaValue.toLocaleString('es-CL')} {showPercentage ? '%' : 'unid.'}
               </div>
             )}
