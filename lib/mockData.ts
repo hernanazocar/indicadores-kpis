@@ -7,11 +7,11 @@ export const mockKPIData: KPIData = {
   reservasDelMesCLP: 764500000,
   firmasDelMes: 6,
   firmasDelMesCLP: 255100000,
-  desistimientosDelMes: 5,
-  desistimientosDelMesCLP: 263400000,
+  desistimientosDelMes: 9,
+  desistimientosDelMesCLP: 224000000,
   diasFirmasDelMes: 25, // Vamos en 25 días
   metaDiasFirmas: 22, // Meta es 22 días
-  porcentajeDesistimientos: 36, // 36.4% redondeado
+  porcentajeDesistimientos: 64, // 9/14 * 100 = 64.3%
   metaPorcentajeDesistimientos: 32, // Meta máxima 32%
   porcentajeContado: 100, // 100% contado
   porcentajeCredito: 0, // 0% crédito directo
