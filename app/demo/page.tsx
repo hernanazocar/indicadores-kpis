@@ -14,6 +14,15 @@ export default function DemoPage() {
   const [kpiData, setKpiData] = useState<KPIData>(mockKPIData);
   const [isLoading, setIsLoading] = useState(false);
 
+  const formatCLP = (amount: number) => {
+    return new Intl.NumberFormat('es-CL', {
+      style: 'currency',
+      currency: 'CLP',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
+
   const handleRefresh = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -88,10 +97,12 @@ export default function DemoPage() {
           />
           <KPICard
             title="Desistimientos"
-            value={kpiData.desistimientosDelMes}
-            valueCLP={kpiData.desistimientosDelMesCLP}
-            metaValue={kpiData.metaDelMes}
-            metaValueCLP={kpiData.metaDelMesCLP}
+            value={kpiData.porcentajeDesistimientos}
+            subtitle="del total"
+            showPercentage={true}
+            metaValue={kpiData.metaPorcentajeDesistimientos}
+            reverseGap={true}
+            additionalInfo={`${kpiData.desistimientosDelMes} casos\n${formatCLP(kpiData.desistimientosDelMesCLP)}`}
             icon={
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
