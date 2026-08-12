@@ -66,11 +66,6 @@ export default function MetaCard({ value, valueCLP, delay = 0 }: MetaCardProps) 
               </div>
             </motion.div>
 
-            {/* Info adicional */}
-            <div className="mt-2 pt-2 border-t border-white/20">
-              <div className="text-[10px] text-orange-200">Objetivo Anual</div>
-              <div className="text-xs font-bold text-white">600 unidades</div>
-            </div>
           </div>
 
         </div>
