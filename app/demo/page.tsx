@@ -38,9 +38,9 @@ export default function DemoPage() {
 
   return (
     <div className="h-screen overflow-hidden bg-emerald-900">
-      <div className="container mx-auto px-2 py-1 max-w-7xl h-full flex flex-col">
+      <div className="container mx-auto px-2 py-0.5 max-w-7xl h-full flex flex-col">
         {/* Header ejecutivo */}
-        <div className="flex items-center justify-between mb-1.5 flex-shrink-0">
+        <div className="flex items-center justify-between mb-1 flex-shrink-0">
           <div>
             <h1 className="text-lg font-bold text-white">Inmobiliaria Chicureo</h1>
             <p className="text-[10px] text-gray-400">Actualizado: {new Date().toLocaleString('es-CL', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
@@ -58,7 +58,7 @@ export default function DemoPage() {
         </div>
 
         {/* Primera fila: Meta, Reservas, Firmas, Desistimientos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-2 flex-shrink-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-1.5 flex-shrink-0">
           <MetaCard
             value={kpiData.metaDelMes}
             valueCLP={kpiData.metaDelMesCLP}
@@ -108,8 +108,8 @@ export default function DemoPage() {
         </div>
 
         {/* Segunda fila: Tabla ejecutiva */}
-        <div className="bg-white rounded-lg p-2 shadow-lg flex-shrink-0">
-          <div className="grid grid-cols-6 gap-3">
+        <div className="bg-white rounded-lg p-1.5 shadow-lg flex-shrink-0 mb-1">
+          <div className="grid grid-cols-6 gap-2">
             {/* 1. Días Firmas */}
             <div className="border-r border-gray-200 pr-3">
               <div className="flex items-center gap-1.5 mb-1">
