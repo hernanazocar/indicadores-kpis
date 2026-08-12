@@ -100,7 +100,7 @@ export default function DemoPage() {
             value={kpiData.desistimientosDelMes}
             valueCLP={kpiData.desistimientosDelMesCLP}
             metaValue={kpiData.metaPorcentajeDesistimientos}
-            showPercentage={false}
+            showPercentage={true}
             additionalInfo={`${kpiData.porcentajeDesistimientos}% del total`}
             icon={
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
