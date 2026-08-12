@@ -5,8 +5,8 @@ export const mockKPIData: KPIData = {
   metaDelMesCLP: 922599998,
   reservasDelMes: 14,
   reservasDelMesCLP: 764500000,
-  firmasDelMes: 2,
-  firmasDelMesCLP: 75900000,
+  firmasDelMes: 6,
+  firmasDelMesCLP: 255100000,
   desistimientosDelMes: 5,
   desistimientosDelMesCLP: 263400000,
   diasFirmasDelMes: 25, // Vamos en 25 días
@@ -19,11 +19,11 @@ export const mockKPIData: KPIData = {
   cobradoRealCLP: 20368430, // Realmente recaudado
   cobranzaEsperada: 0, // Sin unidades específicas
   cobranzaEsperadaCLP: 92296645, // Deberíamos recaudar este mes
-  conversionReservasAFirmas: 0, // Conversión en 0% (firmas del mes / reservas del mes)
+  conversionReservasAFirmas: 43, // Conversión 6/14 * 100 = 42.8%
   metaConversion: 65,
   formaPago: {
-    contado: 2, // 100% contado
-    contadoCLP: 75900000,
+    contado: 6, // 100% contado
+    contadoCLP: 255100000,
     credito: 0, // 0% crédito directo
     creditoCLP: 0,
     hipotecario: 0, // 0% crédito hipotecario
@@ -33,9 +33,9 @@ export const mockKPIData: KPIData = {
   diasTramitacionHipotecario: 0,
   metaDiasTramitacionHipotecario: 45,
   otros: {
-    conversion: 0,
+    conversion: 42.8,
     promedioReserva: 54607143,
-    ticketPromedio: 37950000,
+    ticketPromedio: 42516667, // 255.100.000 / 6
   },
   ultimaActualizacion: new Date().toISOString(),
 };
