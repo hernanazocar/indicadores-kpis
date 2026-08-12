@@ -95,6 +95,8 @@ export class ExcelService {
       return {
         metaDelMes: data.metaDelMes || data.meta || 0,
         metaDelMesCLP: data.metaDelMesCLP || data.metaCLP || 0,
+        metaReservas: data.metaReservas || data.metaDelMes || data.meta || 0,
+        metaReservasCLP: data.metaReservasCLP || data.metaDelMesCLP || data.metaCLP || 0,
         reservasDelMes: reservas,
         reservasDelMesCLP: data.reservasDelMesCLP || data.reservasCLP || 0,
         firmasDelMes: firmas,

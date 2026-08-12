@@ -69,6 +69,8 @@ export function generateRandomKPIData(): KPIData {
   return {
     metaDelMes: meta,
     metaDelMesCLP: meta * valorPromedioReserva,
+    metaReservas: meta,
+    metaReservasCLP: meta * valorPromedioReserva,
     reservasDelMes: reservas,
     reservasDelMesCLP: reservas * valorPromedioReserva,
     firmasDelMes: firmas,
