@@ -151,8 +151,12 @@ export default function DemoPage() {
             {/* 4. Cobranza */}
             <div className="border-r border-gray-200 pr-1.5">
               <div className="text-[9px] text-gray-500 uppercase mb-0.5 font-semibold">Cobranza</div>
-              <div className="text-xl font-black text-gray-900 mb-0.5">{kpiData.cobradoReal}</div>
-              <div className="text-[9px] text-gray-600 font-semibold">${(kpiData.cobradoRealCLP / 1000000).toFixed(0)}M</div>
+              <div className="text-xl font-black text-gray-900 mb-0.5">{Math.round((kpiData.cobradoRealCLP / kpiData.cobranzaEsperadaCLP) * 100)}%</div>
+              <div className="text-[9px] text-gray-600 font-semibold mb-0.5">Real: ${(kpiData.cobradoRealCLP / 1000000).toFixed(1)}M</div>
+              <div className="text-[9px] text-gray-600">Esp: ${(kpiData.cobranzaEsperadaCLP / 1000000).toFixed(1)}M</div>
+              <div className={`text-[9px] font-bold ${kpiData.cobradoRealCLP >= kpiData.cobranzaEsperadaCLP ? 'text-green-600' : 'text-red-600'}`}>
+                Gap: -${((kpiData.cobranzaEsperadaCLP - kpiData.cobradoRealCLP) / 1000000).toFixed(1)}M
+              </div>
             </div>
 
             {/* 5. Conversión */}

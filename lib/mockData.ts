@@ -15,10 +15,10 @@ export const mockKPIData: KPIData = {
   metaPorcentajeDesistimientos: 32, // Meta máxima 32%
   porcentajeContado: 100, // 100% contado
   porcentajeCredito: 0, // 0% crédito directo
-  cobradoReal: 0, // Cobranza en 0
-  cobradoRealCLP: 0,
-  cobranzaEsperada: 0, // Cobranza esperada en 0
-  cobranzaEsperadaCLP: 0,
+  cobradoReal: 0, // Sin unidades específicas
+  cobradoRealCLP: 20368430, // Realmente recaudado
+  cobranzaEsperada: 0, // Sin unidades específicas
+  cobranzaEsperadaCLP: 92296645, // Deberíamos recaudar este mes
   conversionReservasAFirmas: 0, // Conversión en 0% (firmas del mes / reservas del mes)
   metaConversion: 65,
   formaPago: {
