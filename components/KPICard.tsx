@@ -252,7 +252,7 @@ export default function KPICard({
             {/* Meta debajo del valor */}
             {metaValue && variant !== 'meta' && (
               <div className={`text-[9px] font-semibold ${colors.subtitleColor} mt-0.5`}>
-                Meta: {metaValue.toLocaleString('es-CL')} {showPercentage ? '%' : 'unid.'}
+                Meta: {metaValue.toLocaleString('es-CL')} {showPercentage ? '%' : 'unid.'} ({progressPercent}% cumpl.)
               </div>
             )}
 
