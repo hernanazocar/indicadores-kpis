@@ -3,28 +3,28 @@ import { KPIData } from './excelService';
 export const mockKPIData: KPIData = {
   metaDelMes: 30,
   metaDelMesCLP: 922599998,
-  reservasDelMes: 15,
-  reservasDelMesCLP: 764500000,
-  firmasDelMes: 1,
-  firmasDelMesCLP: 41000000,
-  desistimientosDelMes: 8,
-  desistimientosDelMesCLP: 423200000,
-  diasFirmasDelMes: 7,
-  metaDiasFirmas: 30,
-  porcentajeDesistimientos: 53, // 8/15 * 100
-  metaPorcentajeDesistimientos: 10,
-  porcentajeContado: 100, // 1/1 * 100 (solo hay 1 firma)
-  porcentajeCredito: 0,
-  cobradoReal: 1, // 1 firma cobrada
-  cobradoRealCLP: 41000000,
-  cobranzaEsperada: 1, // Lo que deberíamos haber cobrado a la fecha
-  cobranzaEsperadaCLP: 41000000,
-  conversionReservasAFirmas: 7, // 1/15 * 100 (redondeado)
+  reservasDelMes: 14,
+  reservasDelMesCLP: 764500000, // Estimado
+  firmasDelMes: 2,
+  firmasDelMesCLP: 75900000,
+  desistimientosDelMes: 5,
+  desistimientosDelMesCLP: 263400000, // Estimado: 5 * promedio
+  diasFirmasDelMes: 0, // Sin firmas registradas aún con tiempo
+  metaDiasFirmas: 22,
+  porcentajeDesistimientos: 36, // 35.7% redondeado
+  metaPorcentajeDesistimientos: 32, // Meta máxima
+  porcentajeContado: 100, // 100% según tabla
+  porcentajeCredito: 0, // 0% según tabla
+  cobradoReal: 2, // 2 firmas cobradas
+  cobradoRealCLP: 75900000,
+  cobranzaEsperada: 2, // Lo que deberíamos haber cobrado a la fecha
+  cobranzaEsperadaCLP: 75900000,
+  conversionReservasAFirmas: 14, // 2/14 * 100 = 14.3%
   metaConversion: 65,
   formaPago: {
-    contado: 1,
-    contadoCLP: 41000000,
-    credito: 0,
+    contado: 2, // 100% contado
+    contadoCLP: 75900000,
+    credito: 0, // 0% crédito
     creditoCLP: 0,
     hipotecario: 0,
     hipotecarioCLP: 0,
@@ -33,9 +33,9 @@ export const mockKPIData: KPIData = {
   diasTramitacionHipotecario: 0, // No hay tramitaciones
   metaDiasTramitacionHipotecario: 45,
   otros: {
-    conversion: 6.7,
-    promedioReserva: 50966667, // 764.500.000 / 15
-    ticketPromedio: 41000000,
+    conversion: 14.3,
+    promedioReserva: 54607143, // 764.500.000 / 14
+    ticketPromedio: 37950000, // 75.900.000 / 2
   },
   ultimaActualizacion: new Date().toISOString(),
 };
