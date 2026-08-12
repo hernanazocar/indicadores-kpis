@@ -57,22 +57,22 @@ export default function MonthlyTrendChart({ data, meta = 50 }: MonthlyTrendChart
       className="bg-white rounded-lg shadow-md hover:shadow-xl overflow-hidden transition-all duration-300"
     >
       {/* Encabezado */}
-      <div className="bg-slate-50 border-b border-slate-200 p-1.5">
-        <div className="flex items-center gap-1.5">
-          <div className="p-1 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 shadow-md">
-            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-slate-50 border-b border-slate-200 p-1">
+        <div className="flex items-center gap-1">
+          <div className="p-0.5 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 shadow-md">
+            <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
           </div>
-          <h3 className="text-[10px] font-bold text-slate-900">
+          <h3 className="text-[9px] font-bold text-slate-900">
             Resumen del Mes
           </h3>
         </div>
       </div>
 
       {/* Gráfico */}
-      <div className="p-1">
-        <ResponsiveContainer width="100%" height={140}>
+      <div className="p-0.5">
+        <ResponsiveContainer width="100%" height={110}>
           <BarChart
             data={chartData}
             margin={{ top: 20, right: 20, left: 20, bottom: 5 }}
