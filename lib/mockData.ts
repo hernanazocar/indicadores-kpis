@@ -32,7 +32,7 @@ export const mockKPIData: KPIData = {
     hipotecarioCLP: 0,
   },
   hipotecariosPendientesCLP: 0,
-  diasTramitacionHipotecario: 37.0, // 37,0 días en desistimiento
+  diasTramitacionHipotecario: 0, // Sin hipotecarios
   metaDiasTramitacionHipotecario: 45,
   otros: {
     conversion: 3.8,
