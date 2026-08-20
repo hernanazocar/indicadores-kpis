@@ -15,8 +15,8 @@ export const mockKPIData: KPIData = {
   metaDiasFirmas: 22, // Meta es 22 días
   porcentajeDesistimientos: 37, // 37% de desistimientos
   metaPorcentajeDesistimientos: 32, // Meta máxima 32%
-  porcentajeContado: 100, // 100% contado
-  porcentajeCredito: 0, // 0% crédito directo
+  porcentajeContado: 61.5, // 61,5% contado
+  porcentajeCredito: 38.5, // 38,5% crédito directo
   cobradoReal: 0, // Sin unidades específicas
   cobradoRealCLP: 20368430, // Realmente recaudado
   cobranzaEsperada: 0, // Sin unidades específicas
@@ -24,10 +24,10 @@ export const mockKPIData: KPIData = {
   conversionReservasAFirmas: 3.8, // Conversión 3,8%
   metaConversion: 65,
   formaPago: {
-    contado: 13, // 100% contado (todas las firmas)
-    contadoCLP: 617400000,
-    credito: 0, // 0% crédito directo
-    creditoCLP: 0,
+    contado: 8, // 61,5% contado (8 unidades de 13)
+    contadoCLP: 379701000,
+    credito: 5, // 38,5% crédito directo (5 unidades de 13)
+    creditoCLP: 237699000,
     hipotecario: 0, // 0% crédito hipotecario
     hipotecarioCLP: 0,
   },
