@@ -193,7 +193,7 @@ export default function DemoPage() {
               <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.conversionReservasAFirmas}%</div>
               <div className="text-[10px] text-gray-600 font-semibold mb-0.5">Reservas → Firmas</div>
               <div className="text-[9px] text-gray-500">
-                0 firmas de {kpiData.reservasDelMes} reservas del mes
+                1 firma de {kpiData.reservasDelMes} reservas del mes
               </div>
             </div>
 
