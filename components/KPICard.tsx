@@ -226,31 +226,29 @@ export default function KPICard({
           </div>
 
           <div className="space-y-0.5">
-            {/* Valor en CLP - PROTAGONISTA */}
-            {valueCLP !== undefined && valueCLP > 0 && (
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: delay + 0.2 }}
-                className="mb-0.5"
-              >
-                <div className={`text-2xl font-black ${colors.valueColor} leading-tight`}>
-                  {formatCLP(valueCLP)}
-                </div>
-              </motion.div>
-            )}
-
-            {/* Valor en unidades - secundario */}
-            <div className="flex items-baseline gap-1">
-              <div className={`text-base font-bold ${colors.subtitleColor}`}>
+            {/* Valor en unidades - PRIMER PROTAGONISTA */}
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5, delay: delay + 0.2 }}
+              className="flex items-baseline gap-1"
+            >
+              <div className={`text-3xl font-black ${colors.valueColor}`}>
                 {typeof value === 'number' ? value.toLocaleString('es-CL') : value}{showPercentage ? '%' : ''}
               </div>
               {!showPercentage && (
-                <div className={`text-[9px] font-semibold ${colors.subtitleColor}`}>
+                <div className={`text-xs font-semibold ${colors.subtitleColor}`}>
                   {subtitle || 'unidades'}
                 </div>
               )}
-            </div>
+            </motion.div>
+
+            {/* Valor en CLP - SEGUNDO PROTAGONISTA (mismo peso) */}
+            {valueCLP !== undefined && valueCLP > 0 && (
+              <div className={`text-2xl font-black ${colors.valueColor} leading-tight`}>
+                {formatCLP(valueCLP)}
+              </div>
+            )}
 
             {/* Meta debajo del valor */}
             {metaValue && variant !== 'meta' && (
