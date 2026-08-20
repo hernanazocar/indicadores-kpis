@@ -5,15 +5,15 @@ export const mockKPIData: KPIData = {
   metaDelMesCLP: 922599998,
   metaReservas: 45,
   metaReservasCLP: 1383899997,
-  reservasDelMes: 22,
-  reservasDelMesCLP: 1081400000,
-  firmasDelMes: 11,
-  firmasDelMesCLP: 523600000,
-  desistimientosDelMes: 9,
-  desistimientosDelMesCLP: 479100000,
-  diasFirmasDelMes: 25, // Vamos en 25 días
+  reservasDelMes: 26, // 26 unidades
+  reservasDelMesCLP: 1247000000, // $1.247.000.000
+  firmasDelMes: 13, // 13 unidades
+  firmasDelMesCLP: 617400000, // $617.400.000
+  desistimientosDelMes: 10, // 10 unidades
+  desistimientosDelMesCLP: 527000000, // $527.000.000
+  diasFirmasDelMes: 25.6, // 25,6 días a firma (de 26 reservas)
   metaDiasFirmas: 22, // Meta es 22 días
-  porcentajeDesistimientos: 38, // 38.1% según cálculo específico
+  porcentajeDesistimientos: 38, // 38.5% (10 desistimientos / 26 reservas)
   metaPorcentajeDesistimientos: 32, // Meta máxima 32%
   porcentajeContado: 100, // 100% contado
   porcentajeCredito: 0, // 0% crédito directo
@@ -21,23 +21,23 @@ export const mockKPIData: KPIData = {
   cobradoRealCLP: 20368430, // Realmente recaudado
   cobranzaEsperada: 0, // Sin unidades específicas
   cobranzaEsperadaCLP: 92296645, // Deberíamos recaudar este mes
-  conversionReservasAFirmas: 0, // Conversión 0% - firmas del mes sobre reservas del mes
+  conversionReservasAFirmas: 3.8, // Conversión 3,8%
   metaConversion: 65,
   formaPago: {
-    contado: 6, // 100% contado
-    contadoCLP: 255100000,
+    contado: 13, // 100% contado (todas las firmas)
+    contadoCLP: 617400000,
     credito: 0, // 0% crédito directo
     creditoCLP: 0,
     hipotecario: 0, // 0% crédito hipotecario
     hipotecarioCLP: 0,
   },
   hipotecariosPendientesCLP: 0,
-  diasTramitacionHipotecario: 0,
+  diasTramitacionHipotecario: 37.0, // 37,0 días en desistimiento
   metaDiasTramitacionHipotecario: 45,
   otros: {
-    conversion: 0,
-    promedioReserva: 54607143,
-    ticketPromedio: 42516667, // 255.100.000 / 6
+    conversion: 3.8,
+    promedioReserva: 47961538, // 1.247.000.000 / 26
+    ticketPromedio: 47492308, // 617.400.000 / 13
   },
   ultimaActualizacion: new Date().toISOString(),
 };
