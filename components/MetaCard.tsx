@@ -41,28 +41,29 @@ export default function MetaCard({ value, valueCLP, delay = 0 }: MetaCardProps) 
 
           {/* Valores */}
           <div className="space-y-1 flex-1 flex flex-col justify-center">
-            {/* Unidades */}
+            {/* Valor CLP - PROTAGONISTA */}
             <motion.div
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: delay + 0.2 }}
             >
-              <div className="text-5xl font-black text-white mb-1">
-                {value.toLocaleString('es-CL')}
-              </div>
-              <div className="text-[10px] text-orange-200">
-                unidades
+              <div className="text-3xl font-black text-white leading-tight">
+                {formatCLP(valueCLP)}
               </div>
             </motion.div>
 
-            {/* Valor CLP */}
+            {/* Unidades - secundario */}
             <motion.div
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: delay + 0.4 }}
+              className="flex items-baseline gap-1.5"
             >
-              <div className="text-sm font-bold text-white mt-1.5">
-                {formatCLP(valueCLP)}
+              <div className="text-lg font-bold text-orange-200">
+                {value.toLocaleString('es-CL')}
+              </div>
+              <div className="text-[10px] text-orange-200 font-semibold">
+                unidades
               </div>
             </motion.div>
 
