@@ -21,7 +21,7 @@ export const mockKPIData: KPIData = {
   cobradoRealCLP: 20368430, // Realmente recaudado
   cobranzaEsperada: 0, // Sin unidades específicas
   cobranzaEsperadaCLP: 92296645, // Deberíamos recaudar este mes
-  conversionReservasAFirmas: 3.8, // Conversión 3,8%
+  conversionReservasAFirmas: 3.8, // 1 firma de 26 reservas del mes = 3,8%
   metaConversion: 65,
   formaPago: {
     contado: 8, // 61,5% contado (8 unidades de 13)
