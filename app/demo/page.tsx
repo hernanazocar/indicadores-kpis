@@ -120,7 +120,7 @@ export default function DemoPage() {
                 </svg>
                 <div className="text-xs text-gray-500 uppercase font-semibold">Días Firmas</div>
               </div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.diasFirmasDelMes}</div>
+              <div className="text-2xl font-black text-gray-900 mb-1">{kpiData.diasFirmasDelMes}</div>
               <div className="text-[10px] text-gray-600 font-semibold mb-1">Meta: {kpiData.metaDiasFirmas} días</div>
               <div className={`text-[10px] font-bold ${kpiData.diasFirmasDelMes <= kpiData.metaDiasFirmas ? 'text-green-600' : 'text-red-600'}`}>
                 {Math.round((kpiData.metaDiasFirmas / kpiData.diasFirmasDelMes) * 100)}% cumplimiento
@@ -135,7 +135,7 @@ export default function DemoPage() {
                 </svg>
                 <div className="text-xs text-gray-500 uppercase font-semibold">Desistimientos %</div>
               </div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.porcentajeDesistimientos}%</div>
+              <div className="text-2xl font-black text-gray-900 mb-1">{kpiData.porcentajeDesistimientos}%</div>
               <div className="text-[10px] text-gray-600 font-semibold mb-1">Meta: {kpiData.metaPorcentajeDesistimientos}%</div>
               <div className={`text-[10px] font-bold ${kpiData.porcentajeDesistimientos <= kpiData.metaPorcentajeDesistimientos ? 'text-green-600' : 'text-red-600'}`}>
                 {Math.round((kpiData.metaPorcentajeDesistimientos / kpiData.porcentajeDesistimientos) * 100)}% cumplimiento
@@ -153,15 +153,15 @@ export default function DemoPage() {
               <div className="space-y-0">
                 <div className="flex items-center justify-between">
                   <span className="text-[9px] text-gray-600 font-semibold">Contado:</span>
-                  <span className="text-2xl font-black text-green-600">{Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
+                  <span className="text-xl font-black text-green-600">{Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-[9px] text-gray-600 font-semibold">Créd. Directo:</span>
-                  <span className="text-2xl font-black text-gray-900">{Math.round((kpiData.formaPago.credito / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
+                  <span className="text-xl font-black text-gray-900">{Math.round((kpiData.formaPago.credito / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-[9px] text-gray-600 font-semibold">Créd. Hipotecario:</span>
-                  <span className="text-2xl font-black text-gray-900">{Math.round((kpiData.formaPago.hipotecario / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
+                  <span className="text-xl font-black text-gray-900">{Math.round((kpiData.formaPago.hipotecario / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}%</span>
                 </div>
               </div>
             </div>
@@ -174,7 +174,7 @@ export default function DemoPage() {
                 </svg>
                 <div className="text-xs text-gray-500 uppercase font-semibold">Cobranza</div>
               </div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{Math.round((kpiData.cobradoRealCLP / kpiData.cobranzaEsperadaCLP) * 100)}%</div>
+              <div className="text-2xl font-black text-gray-900 mb-1">{Math.round((kpiData.cobradoRealCLP / kpiData.cobranzaEsperadaCLP) * 100)}%</div>
               <div className="text-[10px] text-gray-600 font-semibold mb-0.5">Cobrado: ${kpiData.cobradoRealCLP.toLocaleString('es-CL')}</div>
               <div className="text-[10px] text-gray-600 mb-0.5">Esperado: ${kpiData.cobranzaEsperadaCLP.toLocaleString('es-CL')}</div>
               <div className={`text-[10px] font-bold ${kpiData.cobradoRealCLP >= kpiData.cobranzaEsperadaCLP ? 'text-green-600' : 'text-red-600'}`}>
@@ -190,7 +190,7 @@ export default function DemoPage() {
                 </svg>
                 <div className="text-xs text-gray-500 uppercase font-semibold">Conversión</div>
               </div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.conversionReservasAFirmas}%</div>
+              <div className="text-2xl font-black text-gray-900 mb-1">{kpiData.conversionReservasAFirmas}%</div>
               <div className="text-[10px] text-gray-600 font-semibold mb-0.5">Reservas → Firmas</div>
               <div className="text-[9px] text-gray-500">
                 1 firma de {kpiData.reservasDelMes} reservas del mes
@@ -205,7 +205,7 @@ export default function DemoPage() {
                 </svg>
                 <div className="text-xs text-gray-500 uppercase font-semibold">Hipotecarios</div>
               </div>
-              <div className="text-3xl font-black text-gray-900 mb-1">{kpiData.diasTramitacionHipotecario}</div>
+              <div className="text-2xl font-black text-gray-900 mb-1">{kpiData.diasTramitacionHipotecario}</div>
               <div className="text-[10px] text-gray-600 font-semibold">Días tramitación</div>
             </div>
           </div>
