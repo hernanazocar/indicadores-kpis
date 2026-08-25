@@ -39,7 +39,7 @@ export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, fir
       };
     } else if (cumplimiento >= 90) {
       return {
-        text: '⚡ CASI LOGRADO',
+        text: 'CASI LOGRADO',
         bgColor: 'bg-gradient-to-r from-blue-500 to-indigo-600',
         textColor: 'text-white',
         isSuccess: false,
