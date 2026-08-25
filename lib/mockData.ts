@@ -5,39 +5,39 @@ export const mockKPIData: KPIData = {
   metaDelMesCLP: 922599998,
   metaReservas: 45,
   metaReservasCLP: 1383899997,
-  reservasDelMes: 26, // 26 unidades
-  reservasDelMesCLP: 1247000000, // $1.247.000.000
-  firmasDelMes: 13, // 13 unidades
-  firmasDelMesCLP: 617400000, // $617.400.000
-  desistimientosDelMes: 10, // 10 unidades
-  desistimientosDelMesCLP: 527000000, // $527.000.000
-  diasFirmasDelMes: 25.6, // 25,6 días a firma (de 26 reservas)
+  reservasDelMes: 32, // 32 unidades
+  reservasDelMesCLP: 1536400000, // $1.536.400.000
+  firmasDelMes: 23, // 23 unidades
+  firmasDelMesCLP: 1019800000, // $1.019.800.000
+  desistimientosDelMes: 12, // 12 unidades
+  desistimientosDelMesCLP: 624800000, // $624.800.000
+  diasFirmasDelMes: 25.7, // 25.7 días a firma
   metaDiasFirmas: 22, // Meta es 22 días
-  porcentajeDesistimientos: 37, // 37% de desistimientos
+  porcentajeDesistimientos: 37.5, // 37.5% de desistimientos (12/32)
   metaPorcentajeDesistimientos: 32, // Meta máxima 32%
-  porcentajeContado: 61.5, // 61,5% contado
-  porcentajeCredito: 38.5, // 38,5% crédito directo
+  porcentajeContado: 64.7, // 64.7% contado
+  porcentajeCredito: 35.3, // 35.3% crédito directo
   cobradoReal: 0, // Sin unidades específicas
   cobradoRealCLP: 20368430, // Realmente recaudado
   cobranzaEsperada: 0, // Sin unidades específicas
   cobranzaEsperadaCLP: 92296645, // Deberíamos recaudar este mes
-  conversionReservasAFirmas: 3.8, // 1 firma de 26 reservas del mes = 3,8%
+  conversionReservasAFirmas: 71.9, // 23 firmas de 32 reservas = 71.9%
   metaConversion: 65,
   formaPago: {
-    contado: 8, // 61,5% contado (8 unidades de 13)
-    contadoCLP: 379701000,
-    credito: 5, // 38,5% crédito directo (5 unidades de 13)
-    creditoCLP: 237699000,
+    contado: 15, // 64.7% contado (~15 unidades de 23)
+    contadoCLP: 659812600, // 64.7% de 1.019.800.000
+    credito: 8, // 35.3% crédito directo (~8 unidades de 23)
+    creditoCLP: 359987400, // 35.3% de 1.019.800.000
     hipotecario: 0, // 0% crédito hipotecario
     hipotecarioCLP: 0,
   },
   hipotecariosPendientesCLP: 0,
-  diasTramitacionHipotecario: 186, // 186 días de tramitación
+  diasTramitacionHipotecario: 36.9, // 36.9 días de tramitación (días a desistimiento)
   metaDiasTramitacionHipotecario: 45,
   otros: {
-    conversion: 3.8,
-    promedioReserva: 47961538, // 1.247.000.000 / 26
-    ticketPromedio: 47492308, // 617.400.000 / 13
+    conversion: 71.9,
+    promedioReserva: 48012500, // 1.536.400.000 / 32
+    ticketPromedio: 44339130, // 1.019.800.000 / 23
   },
   ultimaActualizacion: new Date().toISOString(),
 };
