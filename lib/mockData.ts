@@ -21,7 +21,7 @@ export const mockKPIData: KPIData = {
   cobradoRealCLP: 20368430, // Realmente recaudado
   cobranzaEsperada: 0, // Sin unidades específicas
   cobranzaEsperadaCLP: 92296645, // Deberíamos recaudar este mes
-  conversionReservasAFirmas: 71.9, // 23 firmas de 32 reservas = 71.9%
+  conversionReservasAFirmas: 3.1, // 1 firma de 32 reservas del mismo mes = 3.1%
   metaConversion: 65,
   formaPago: {
     contado: 15, // 64.7% contado (~15 unidades de 23)
@@ -35,7 +35,7 @@ export const mockKPIData: KPIData = {
   diasTramitacionHipotecario: 36.9, // 36.9 días de tramitación (días a desistimiento)
   metaDiasTramitacionHipotecario: 45,
   otros: {
-    conversion: 71.9,
+    conversion: 3.1,
     promedioReserva: 48012500, // 1.536.400.000 / 32
     ticketPromedio: 44339130, // 1.019.800.000 / 23
   },
