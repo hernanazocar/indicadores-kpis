@@ -214,14 +214,30 @@ export default function KPICard({
               </p>
             </div>
             {metaValue && progressPercent !== undefined && (
-              <span className={`px-1 py-0.5 rounded text-[9px] font-bold ${
-                progressPercent >= 100 ? 'bg-green-100 text-green-700' :
-                progressPercent >= 70 ? 'bg-blue-100 text-blue-700' :
-                progressPercent >= 50 ? 'bg-amber-100 text-amber-700' :
-                'bg-red-100 text-red-700'
-              }`}>
-                {progressPercent}%
-              </span>
+              <div className="flex items-center gap-1">
+                {progressPercent >= 100 ? (
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 15, delay: delay + 0.3 }}
+                    className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-md flex items-center gap-1"
+                  >
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    META {progressPercent}%
+                  </motion.span>
+                ) : (
+                  <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold ${
+                    progressPercent >= 90 ? 'bg-emerald-100 text-emerald-700' :
+                    progressPercent >= 70 ? 'bg-blue-100 text-blue-700' :
+                    progressPercent >= 50 ? 'bg-amber-100 text-amber-700' :
+                    'bg-red-100 text-red-700'
+                  }`}>
+                    {progressPercent}%
+                  </span>
+                )}
+              </div>
             )}
           </div>
 
@@ -305,6 +321,26 @@ export default function KPICard({
             )}
           </div>
         </div>
+
+        {/* Banner de Meta Cumplida */}
+        {metaValue && progressPercent >= 100 && variant !== 'meta' && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: delay + 0.5 }}
+            className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-emerald-500 to-green-600 text-white text-center py-1"
+          >
+            <div className="flex items-center justify-center gap-1.5">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span className="text-[10px] font-bold tracking-wide">¡META ALCANZADA!</span>
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.div>
   );
