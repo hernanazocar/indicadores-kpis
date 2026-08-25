@@ -194,6 +194,8 @@ export default function Home() {
               <MetaCard
                 value={kpiData.metaDelMes}
                 valueCLP={kpiData.metaDelMesCLP}
+                firmasReales={kpiData.firmasDelMes}
+                firmasRealesCLP={kpiData.firmasDelMesCLP}
                 delay={0}
               />
               <KPICard

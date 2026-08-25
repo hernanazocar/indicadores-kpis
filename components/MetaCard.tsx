@@ -6,9 +6,11 @@ interface MetaCardProps {
   value: number;
   valueCLP: number;
   delay?: number;
+  firmasReales?: number;
+  firmasRealesCLP?: number;
 }
 
-export default function MetaCard({ value, valueCLP, delay = 0 }: MetaCardProps) {
+export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, firmasRealesCLP }: MetaCardProps) {
   const formatCLP = (amount: number) => {
     return new Intl.NumberFormat('es-CL', {
       style: 'currency',
@@ -17,6 +19,60 @@ export default function MetaCard({ value, valueCLP, delay = 0 }: MetaCardProps) 
       maximumFractionDigits: 0,
     }).format(amount);
   };
+
+  // Calcular cumplimiento
+  const cumplimiento = firmasReales && value ? Math.round((firmasReales / value) * 100) : 0;
+
+  // Determinar badge según cumplimiento
+  const getBadgeConfig = () => {
+    if (cumplimiento >= 100) {
+      return {
+        text: '✓ META CUMPLIDA',
+        bgColor: 'bg-gradient-to-r from-emerald-500 to-green-600',
+        textColor: 'text-white',
+        icon: (
+          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+          </svg>
+        ),
+      };
+    } else if (cumplimiento >= 90) {
+      return {
+        text: '⚡ CASI LOGRADO',
+        bgColor: 'bg-gradient-to-r from-blue-500 to-indigo-600',
+        textColor: 'text-white',
+        icon: (
+          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+          </svg>
+        ),
+      };
+    } else if (cumplimiento >= 70) {
+      return {
+        text: `${cumplimiento}% EN PROGRESO`,
+        bgColor: 'bg-gradient-to-r from-amber-400 to-orange-500',
+        textColor: 'text-slate-900',
+        icon: (
+          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+          </svg>
+        ),
+      };
+    } else {
+      return {
+        text: `${cumplimiento}% OBJETIVO`,
+        bgColor: 'bg-gradient-to-r from-slate-200 to-slate-300',
+        textColor: 'text-slate-900',
+        icon: (
+          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+          </svg>
+        ),
+      };
+    }
+  };
+
+  const badgeConfig = getBadgeConfig();
 
   return (
     <motion.div
@@ -43,12 +99,10 @@ export default function MetaCard({ value, valueCLP, delay = 0 }: MetaCardProps) 
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: 'spring', stiffness: 400, damping: 15, delay: delay + 0.3 }}
-              className="px-2 py-0.5 rounded-full text-[9px] font-bold bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 shadow-lg flex items-center gap-1"
+              className={`px-2 py-0.5 rounded-full text-[9px] font-bold ${badgeConfig.bgColor} ${badgeConfig.textColor} shadow-lg flex items-center gap-1`}
             >
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-              </svg>
-              OBJETIVO
+              {badgeConfig.icon}
+              {badgeConfig.text}
             </motion.span>
           </div>
 
