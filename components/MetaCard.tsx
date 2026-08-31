@@ -86,9 +86,9 @@ export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, fir
       className="group h-full"
     >
       <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg overflow-hidden transition-all duration-300 h-full hover:shadow-2xl shadow-xl border-l-4 border-white">
-        <div className="p-2">
+        <div className="p-1.5">
           {/* Header con título y badge */}
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-1">
             <div className="flex items-center gap-1.5">
               <div className="p-1 rounded-lg bg-white/10 flex-shrink-0">
                 <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +120,7 @@ export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, fir
               transition={{ duration: 0.5, delay: delay + 0.2 }}
               className="flex items-baseline gap-1"
             >
-              <div className="text-3xl font-black text-white">
+              <div className="text-2xl font-black text-white">
                 {value.toLocaleString('es-CL')}
               </div>
               <div className="text-xs font-semibold text-slate-300">
@@ -129,7 +129,7 @@ export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, fir
             </motion.div>
 
             {/* Valor CLP */}
-            <div className="text-2xl font-black text-white leading-tight">
+            <div className="text-xl font-black text-white leading-tight">
               {formatCLP(valueCLP)}
             </div>
 

@@ -199,8 +199,8 @@ export default function KPICard({
       className="group h-full"
     >
       <div className={`relative ${colors.bgColor} ${colors.borderColor} rounded-lg overflow-hidden transition-all duration-300 h-full hover:shadow-2xl shadow-lg`}>
-        <div className="p-2">
-          <div className="flex items-center justify-between mb-1">
+        <div className="p-1.5">
+          <div className="flex items-center justify-between mb-0.5">
             <div className="flex items-center gap-1">
               {icon && (
                 <div className={`p-0.5 rounded-lg ${colors.iconBg} flex-shrink-0`}>
@@ -249,7 +249,7 @@ export default function KPICard({
               transition={{ duration: 0.5, delay: delay + 0.2 }}
               className="flex items-baseline gap-1"
             >
-              <div className={`text-3xl font-black ${colors.valueColor}`}>
+              <div className={`text-2xl font-black ${colors.valueColor}`}>
                 {typeof value === 'number' ? value.toLocaleString('es-CL') : value}{showPercentage ? '%' : ''}
               </div>
               {!showPercentage && (
@@ -261,7 +261,7 @@ export default function KPICard({
 
             {/* Valor en CLP - SEGUNDO PROTAGONISTA (mismo peso) */}
             {valueCLP !== undefined && valueCLP > 0 && (
-              <div className={`text-2xl font-black ${colors.valueColor} leading-tight`}>
+              <div className={`text-xl font-black ${colors.valueColor} leading-tight`}>
                 {formatCLP(valueCLP)}
               </div>
             )}

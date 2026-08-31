@@ -10,6 +10,7 @@ import MetaCard from '@/components/MetaCard';
 export default function DemoPage() {
   const [kpiData, setKpiData] = useState<KPIData>(mockKPIData);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentTime, setCurrentTime] = useState('');
 
   const formatCLP = (amount: number) => {
     return new Intl.NumberFormat('es-CL', {
@@ -20,10 +21,28 @@ export default function DemoPage() {
     }).format(amount);
   };
 
+  // Establecer la hora actual solo en el cliente para evitar hydration mismatch
+  useEffect(() => {
+    setCurrentTime(new Date().toLocaleString('es-CL', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    }));
+  }, []);
+
   const handleRefresh = () => {
     setIsLoading(true);
     setTimeout(() => {
       setKpiData(mockKPIData); // Usar datos fijos, no aleatorios
+      setCurrentTime(new Date().toLocaleString('es-CL', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }));
       setIsLoading(false);
     }, 1000);
   };
@@ -38,12 +57,12 @@ export default function DemoPage() {
 
   return (
     <div className="h-screen overflow-hidden bg-emerald-900">
-      <div className="container mx-auto px-2 py-0.5 max-w-7xl h-full flex flex-col">
+      <div className="container mx-auto px-2 py-1 max-w-7xl h-full flex flex-col">
         {/* Header ejecutivo */}
-        <div className="flex items-center justify-between mb-1 flex-shrink-0">
+        <div className="flex items-center justify-between mb-0.5 flex-shrink-0">
           <div>
             <h1 className="text-lg font-bold text-white">Inmobiliaria Chicureo</h1>
-            <p className="text-[10px] text-gray-400">Actualizado: {new Date().toLocaleString('es-CL', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+            <p className="text-[10px] text-gray-400">Actualizado: {currentTime || 'Cargando...'}</p>
           </div>
           <button
             onClick={handleRefresh}
@@ -58,7 +77,7 @@ export default function DemoPage() {
         </div>
 
         {/* Primera fila: Meta, Reservas, Firmas, Desistimientos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-1.5 flex-shrink-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1.5 mb-1 flex-shrink-0">
           <MetaCard
             value={kpiData.metaDelMes}
             valueCLP={kpiData.metaDelMesCLP}
@@ -112,7 +131,7 @@ export default function DemoPage() {
         </div>
 
         {/* Segunda fila: KPIs de Operación */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-2 mb-1.5 flex-shrink-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-1.5 flex-shrink-0">
           <KPICard
             title="Desistimientos"
             value={kpiData.desistimientosDelMes}
