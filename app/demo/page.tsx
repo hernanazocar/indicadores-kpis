@@ -13,7 +13,7 @@ export default function DemoPage() {
   const [kpiData, setKpiData] = useState<KPIData>(mockKPIData);
   const [isLoading, setIsLoading] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
-  const [scale, setScale] = useState(0.65); // Scale por defecto 65% para Smart TV 43"
+  const [scale, setScale] = useState(0.75); // Scale por defecto 75% para Smart TV 43"
 
   const formatCLP = (amount: number) => {
     return new Intl.NumberFormat('es-CL', {
@@ -96,8 +96,8 @@ export default function DemoPage() {
           </button>
         </div>
 
-        {/* Primera fila: Meta + Reservas */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 mb-1 flex-shrink-0">
+        {/* Primera fila: Meta + Reservas + Firmas + Desistimientos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1.5 mb-1 flex-shrink-0">
           <MetaCard
             value={kpiData.metaDelMes}
             valueCLP={kpiData.metaDelMesCLP}
@@ -120,10 +120,6 @@ export default function DemoPage() {
             variant="primary"
             delay={0.1}
           />
-        </div>
-
-        {/* Segunda fila: Firmas + Desistimientos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 mb-1 flex-shrink-0">
           <KPICard
             title="Firmas del Mes"
             value={kpiData.firmasDelMes}
@@ -154,7 +150,7 @@ export default function DemoPage() {
           />
         </div>
 
-        {/* Tercera fila: Desistimientos + Días Firmas + Forma de Pago */}
+        {/* Segunda fila: Desistimientos + Días Firmas + Forma de Pago */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 mb-1 flex-shrink-0">
           <KPICard
             title="Desistimientos"
@@ -200,7 +196,7 @@ export default function DemoPage() {
           />
         </div>
 
-        {/* Cuarta fila: Cobranza + Conversión + Hipotecarios */}
+        {/* Tercera fila: Cobranza + Conversión + Hipotecarios */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 flex-shrink-0">
           <KPICard
             title="Cobranza"
