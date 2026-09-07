@@ -154,8 +154,21 @@ export default function DemoPage() {
           />
         </div>
 
-        {/* Tercera fila: Días Firmas + Forma de Pago + Cobranza */}
+        {/* Tercera fila: Desistimientos + Días Firmas + Forma de Pago */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 mb-1 flex-shrink-0">
+          <KPICard
+            title="Desistimientos"
+            value={kpiData.desistimientosDelMes}
+            valueCLP={kpiData.desistimientosDelMesCLP}
+            additionalInfo={`${kpiData.porcentajeDesistimientos}% del total (Meta: ${kpiData.metaPorcentajeDesistimientos}% máx.)`}
+            icon={
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            }
+            variant="danger"
+            delay={0.1}
+          />
           <KPICard
             title="Días Firmas"
             value={kpiData.diasFirmasDelMes}
@@ -185,6 +198,10 @@ export default function DemoPage() {
             variant="success"
             delay={0.2}
           />
+        </div>
+
+        {/* Cuarta fila: Cobranza + Conversión + Hipotecarios */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 flex-shrink-0">
           <KPICard
             title="Cobranza"
             value={Math.round((kpiData.cobradoRealCLP / kpiData.cobranzaEsperadaCLP) * 100)}
@@ -200,10 +217,6 @@ export default function DemoPage() {
             variant="info"
             delay={0.3}
           />
-        </div>
-
-        {/* Cuarta fila: Conversión + Hipotecarios */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1.5 flex-shrink-0">
           <KPICard
             title="Conversión"
             value={kpiData.conversionReservasAFirmas}
