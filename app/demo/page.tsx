@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { mockKPIData, generateRandomKPIData } from '@/lib/mockData';
 import { KPIData } from '@/lib/excelService';
 import Header from '@/components/Header';
@@ -8,9 +9,11 @@ import KPICard from '@/components/KPICard';
 import MetaCard from '@/components/MetaCard';
 
 export default function DemoPage() {
+  const searchParams = useSearchParams();
   const [kpiData, setKpiData] = useState<KPIData>(mockKPIData);
   const [isLoading, setIsLoading] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  const [scale, setScale] = useState(1);
 
   const formatCLP = (amount: number) => {
     return new Intl.NumberFormat('es-CL', {
@@ -31,6 +34,17 @@ export default function DemoPage() {
       minute: '2-digit'
     }));
   }, []);
+
+  // Leer parámetro scale de la URL (ej: ?scale=0.8)
+  useEffect(() => {
+    const scaleParam = searchParams.get('scale');
+    if (scaleParam) {
+      const scaleValue = parseFloat(scaleParam);
+      if (!isNaN(scaleValue) && scaleValue > 0 && scaleValue <= 2) {
+        setScale(scaleValue);
+      }
+    }
+  }, [searchParams]);
 
   const handleRefresh = () => {
     setIsLoading(true);
@@ -57,7 +71,13 @@ export default function DemoPage() {
 
   return (
     <div className="h-screen overflow-hidden bg-emerald-900">
-      <div className="container mx-auto px-2 py-1 max-w-7xl h-full flex flex-col">
+      <div
+        className="container mx-auto px-2 py-1 max-w-7xl h-full flex flex-col"
+        style={{
+          transform: `scale(${scale})`,
+          transformOrigin: 'top center',
+        }}
+      >
         {/* Header ejecutivo */}
         <div className="flex items-center justify-between mb-0.5 flex-shrink-0">
           <div>
