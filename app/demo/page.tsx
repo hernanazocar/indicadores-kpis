@@ -13,7 +13,7 @@ export default function DemoPage() {
   const [kpiData, setKpiData] = useState<KPIData>(mockKPIData);
   const [isLoading, setIsLoading] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
-  const [scale, setScale] = useState(0.75); // Scale por defecto 75% para Smart TV
+  const [scale, setScale] = useState(0.9); // Scale por defecto 90% para Smart TV
 
   const formatCLP = (amount: number) => {
     return new Intl.NumberFormat('es-CL', {
@@ -96,8 +96,8 @@ export default function DemoPage() {
           </button>
         </div>
 
-        {/* Primera fila: Meta, Reservas, Firmas, Desistimientos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1.5 mb-1 flex-shrink-0">
+        {/* Primera fila: Meta + Reservas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 mb-1 flex-shrink-0">
           <MetaCard
             value={kpiData.metaDelMes}
             valueCLP={kpiData.metaDelMesCLP}
@@ -120,6 +120,10 @@ export default function DemoPage() {
             variant="primary"
             delay={0.1}
           />
+        </div>
+
+        {/* Segunda fila: Firmas + Desistimientos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 mb-1 flex-shrink-0">
           <KPICard
             title="Firmas del Mes"
             value={kpiData.firmasDelMes}
@@ -150,21 +154,8 @@ export default function DemoPage() {
           />
         </div>
 
-        {/* Segunda fila: KPIs de Operación */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-1.5 flex-shrink-0">
-          <KPICard
-            title="Desistimientos"
-            value={kpiData.desistimientosDelMes}
-            valueCLP={kpiData.desistimientosDelMesCLP}
-            additionalInfo={`${kpiData.porcentajeDesistimientos}% del total (Meta: ${kpiData.metaPorcentajeDesistimientos}% máx.)`}
-            icon={
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-            }
-            variant="danger"
-            delay={0.1}
-          />
+        {/* Tercera fila: Días Firmas + Forma de Pago + Cobranza */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 mb-1 flex-shrink-0">
           <KPICard
             title="Días Firmas"
             value={kpiData.diasFirmasDelMes}
@@ -209,6 +200,10 @@ export default function DemoPage() {
             variant="info"
             delay={0.3}
           />
+        </div>
+
+        {/* Cuarta fila: Conversión + Hipotecarios */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1.5 flex-shrink-0">
           <KPICard
             title="Conversión"
             value={kpiData.conversionReservasAFirmas}
