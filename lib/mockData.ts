@@ -1,27 +1,27 @@
 import { KPIData } from './excelService';
 
 export const mockKPIData: KPIData = {
-  metaDelMes: 30,
-  metaDelMesCLP: 922599998,
+  metaDelMes: 25,
+  metaDelMesCLP: 713800000,
   metaReservas: 45,
   metaReservasCLP: 1383899997,
-  reservasDelMes: 32, // 32 unidades
-  reservasDelMesCLP: 1536400000, // $1.536.400.000
-  firmasDelMes: 23, // 23 unidades
-  firmasDelMesCLP: 1019800000, // $1.019.800.000
-  desistimientosDelMes: 12, // 12 unidades
-  desistimientosDelMesCLP: 624800000, // $624.800.000
-  diasFirmasDelMes: 25.7, // 25.7 días a firma
-  metaDiasFirmas: 22, // Meta es 22 días
-  porcentajeDesistimientos: 37.5, // 37.5% de desistimientos (12/32)
-  metaPorcentajeDesistimientos: 32, // Meta máxima 32%
+  reservasDelMes: 5, // 5 unidades
+  reservasDelMesCLP: 224100000, // $224.100.000
+  firmasDelMes: 4, // 4 unidades
+  firmasDelMesCLP: 148600000, // $148.600.000
+  desistimientosDelMes: 0, // 0 unidades
+  desistimientosDelMesCLP: 0, // $0
+  diasFirmasDelMes: 25.2, // 25.2 días a firma
+  metaDiasFirmas: 20, // Meta es 20 días
+  porcentajeDesistimientos: 35.5, // 35.5% de desistimientos
+  metaPorcentajeDesistimientos: 28, // Meta máxima 28%
   porcentajeContado: 64.7, // 64.7% contado
   porcentajeCredito: 35.3, // 35.3% crédito directo
   cobradoReal: 0, // Sin unidades específicas
   cobradoRealCLP: 58073439, // Pagado: $58.073.439 (55.6% cumplimiento)
   cobranzaEsperada: 0, // Sin unidades específicas
   cobranzaEsperadaCLP: 104433209, // Total a recaudar: $104.433.209 | Pendiente: $46.359.770
-  conversionReservasAFirmas: 3.1, // 1 firma de 32 reservas del mismo mes = 3.1%
+  conversionReservasAFirmas: 80, // 4 firmas de 5 reservas del mismo mes = 80%
   metaConversion: 65,
   formaPago: {
     contado: 15, // 64.7% contado (~15 unidades de 23)
