@@ -167,11 +167,19 @@ export default function KPICard({
   }
 
   // Calcular porcentaje de progreso (según configuración)
-  const progressPercent = progressBasedOnCLP && metaValueCLP && valueCLP
-    ? Math.min(Math.round((valueCLP / metaValueCLP) * 100), 100)
-    : metaValue
-      ? Math.min(Math.round((numValue / metaValue) * 100), 100)
-      : 0;
+  let progressPercent = 0;
+  if (progressBasedOnCLP && metaValueCLP && valueCLP) {
+    progressPercent = Math.round((valueCLP / metaValueCLP) * 100);
+  } else if (metaValue) {
+    if (reverseGap) {
+      // Para KPIs donde menor es mejor (días firmas, hipotecarios, etc)
+      // Si valor < meta, es bueno → mostrar solo si cumple
+      progressPercent = numValue <= metaValue ? 100 : 0;
+    } else {
+      // Para KPIs normales donde mayor es mejor
+      progressPercent = Math.round((numValue / metaValue) * 100);
+    }
+  }
 
   // Determinar color del gap según rendimiento
   const getGapColor = () => {
@@ -213,7 +221,7 @@ export default function KPICard({
                 {title}
               </p>
             </div>
-            {metaValue && progressPercent !== undefined && (
+            {metaValue && progressPercent !== undefined && progressPercent > 0 && (
               <div className="flex items-center gap-1">
                 {progressPercent >= 100 ? (
                   <motion.span
@@ -225,7 +233,7 @@ export default function KPICard({
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    META {progressPercent}%
+                    META CUMPLIDA
                   </motion.span>
                 ) : (
                   <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold ${

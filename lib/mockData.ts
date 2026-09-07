@@ -15,19 +15,19 @@ export const mockKPIData: KPIData = {
   metaDiasFirmas: 20, // Meta es 20 días
   porcentajeDesistimientos: 35.5, // 35.5% de desistimientos
   metaPorcentajeDesistimientos: 28, // Meta máxima 28%
-  porcentajeContado: 64.7, // 64.7% contado
-  porcentajeCredito: 35.3, // 35.3% crédito directo
+  porcentajeContado: 58.4, // 58.4% contado
+  porcentajeCredito: 41.6, // 41.6% crédito directo
   cobradoReal: 0, // Sin unidades específicas
   cobradoRealCLP: 58073439, // Pagado: $58.073.439 (55.6% cumplimiento)
   cobranzaEsperada: 0, // Sin unidades específicas
   cobranzaEsperadaCLP: 104433209, // Total a recaudar: $104.433.209 | Pendiente: $46.359.770
-  conversionReservasAFirmas: 80, // 4 firmas de 5 reservas del mismo mes = 80%
+  conversionReservasAFirmas: 0, // 0 firmas de las 5 reservas de este mes = 0%
   metaConversion: 65,
   formaPago: {
-    contado: 15, // 64.7% contado (~15 unidades de 23)
-    contadoCLP: 659812600, // 64.7% de 1.019.800.000
-    credito: 8, // 35.3% crédito directo (~8 unidades de 23)
-    creditoCLP: 359987400, // 35.3% de 1.019.800.000
+    contado: 2, // 58.4% contado (~2 unidades de 4)
+    contadoCLP: 86782400, // 58.4% de 148.600.000
+    credito: 2, // 41.6% crédito directo (~2 unidades de 4)
+    creditoCLP: 61817600, // 41.6% de 148.600.000
     hipotecario: 0, // 0% crédito hipotecario
     hipotecarioCLP: 0,
   },
