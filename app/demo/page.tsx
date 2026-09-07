@@ -13,7 +13,7 @@ export default function DemoPage() {
   const [kpiData, setKpiData] = useState<KPIData>(mockKPIData);
   const [isLoading, setIsLoading] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
-  const [scale, setScale] = useState(0.85); // Scale por defecto 85% para Smart TV
+  const [scale, setScale] = useState(0.75); // Scale por defecto 75% para Smart TV
 
   const formatCLP = (amount: number) => {
     return new Intl.NumberFormat('es-CL', {
