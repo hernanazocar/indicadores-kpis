@@ -13,7 +13,7 @@ export default function DemoPage() {
   const [kpiData, setKpiData] = useState<KPIData>(mockKPIData);
   const [isLoading, setIsLoading] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
-  const [scale, setScale] = useState(0.75); // Scale por defecto 75% para Smart TV 43"
+  const [scale, setScale] = useState(0.55); // Scale por defecto 55% para Smart TV 43"
 
   const formatCLP = (amount: number) => {
     return new Intl.NumberFormat('es-CL', {
@@ -75,7 +75,7 @@ export default function DemoPage() {
         className="container mx-auto px-2 py-1 max-w-7xl h-full flex flex-col"
         style={{
           transform: `scale(${scale})`,
-          transformOrigin: 'top center',
+          transformOrigin: 'center center',
         }}
       >
         {/* Header ejecutivo */}
