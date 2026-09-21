@@ -207,17 +207,17 @@ export default function KPICard({
       className="group h-full"
     >
       <div className={`relative ${colors.bgColor} ${colors.borderColor} rounded-lg overflow-hidden transition-all duration-300 h-full hover:shadow-2xl shadow-lg flex flex-col`}>
-        <div className="p-4 flex-1 flex flex-col">
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
+        <div className="p-2.5 flex-1 flex flex-col">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-1.5">
               {icon && (
-                <div className={`p-2 rounded-xl ${colors.iconBg} flex-shrink-0`}>
+                <div className={`p-1.5 rounded-lg ${colors.iconBg} flex-shrink-0`}>
                   <div className={colors.iconColor}>
                     {icon}
                   </div>
                 </div>
               )}
-              <p className={`text-xs font-bold ${colors.titleColor} uppercase tracking-wide`}>
+              <p className={`text-[11px] font-bold ${colors.titleColor} uppercase tracking-wide`}>
                 {title}
               </p>
             </div>
@@ -228,97 +228,97 @@ export default function KPICard({
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 500, damping: 15, delay: delay + 0.3 }}
-                    className="px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-lg flex items-center gap-1.5"
+                    className="px-2 py-1 rounded-full text-[10px] font-bold bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-md flex items-center gap-1"
                   >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    87% EN PROGRESO
+                    {progressPercent}% PROGRESO
                   </motion.span>
                 ) : (
-                  <span className={`px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm ${
+                  <span className={`px-2 py-1 rounded-lg text-[10px] font-bold ${
                     progressPercent >= 90 ? 'bg-emerald-100 text-emerald-700' :
                     progressPercent >= 70 ? 'bg-blue-100 text-blue-700' :
                     progressPercent >= 50 ? 'bg-amber-100 text-amber-700' :
                     'bg-red-100 text-red-700'
                   }`}>
-                    {progressPercent}%{progressPercent >= 70 ? ' EN PROGRESO' : ' OBJETIVO'}
+                    {progressPercent}% {progressPercent >= 70 ? 'PROGRESO' : 'OBJETIVO'}
                   </span>
                 )}
               </div>
             )}
           </div>
 
-          <div className="space-y-2 flex-1 flex flex-col justify-center">
-            {/* Valor en unidades - MUCHO MÁS GRANDE */}
+          <div className="space-y-1 flex-1 flex flex-col justify-center">
+            {/* Valor en unidades - OPTIMIZADO PARA TV */}
             <motion.div
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: delay + 0.2 }}
-              className="flex items-baseline gap-2"
+              className="flex items-baseline gap-1.5"
             >
-              <div className={`text-5xl font-black ${colors.valueColor} leading-none`}>
+              <div className={`text-3xl font-black ${colors.valueColor} leading-none`}>
                 {typeof value === 'number' ? value.toLocaleString('es-CL') : value}{showPercentage ? '%' : ''}
               </div>
               {!showPercentage && subtitle && (
-                <div className={`text-base font-bold ${colors.subtitleColor}`}>
+                <div className={`text-sm font-bold ${colors.subtitleColor}`}>
                   {subtitle}
                 </div>
               )}
             </motion.div>
 
-            {/* Valor en CLP - MÁS GRANDE */}
+            {/* Valor en CLP - OPTIMIZADO */}
             {valueCLP !== undefined && valueCLP > 0 && (
-              <div className={`text-2xl font-black ${colors.valueColor} leading-tight`}>
+              <div className={`text-lg font-black ${colors.valueColor} leading-tight`}>
                 {formatCLP(valueCLP)}
               </div>
             )}
 
-            {/* Meta debajo del valor - MÁS GRANDE */}
+            {/* Meta debajo del valor - COMPACTO */}
             {metaValue && variant !== 'meta' && (
-              <div className={`text-sm font-bold ${colors.subtitleColor} mt-2`}>
+              <div className={`text-[11px] font-bold ${colors.subtitleColor} mt-1`}>
                 Meta: {metaValue.toLocaleString('es-CL')} {showPercentage ? '%' : 'unid.'}
               </div>
             )}
 
-            {/* Barra de Progreso - MÁS GRUESA */}
+            {/* Barra de Progreso - COMPACTA */}
             {metaValue && variant !== 'meta' && (
-              <div className="mt-2">
-                <div className="bg-slate-200 h-3 rounded-full overflow-hidden">
+              <div className="mt-1">
+                <div className="bg-slate-200 h-2 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${Math.min(progressPercent, 100)}%` }}
                     transition={{ duration: 1, delay: delay + 0.3 }}
-                    className={`h-full rounded-full ${colors.progressBg} flex items-center justify-end pr-2`}
+                    className={`h-full rounded-full ${colors.progressBg} flex items-center justify-end pr-1`}
                   >
-                    <span className="text-[10px] font-bold text-white">{progressPercent}%</span>
+                    <span className="text-[9px] font-bold text-white">{progressPercent}%</span>
                   </motion.div>
                 </div>
               </div>
             )}
 
-            {/* Gap vs Meta - MÁS GRANDE Y DESTACADO */}
+            {/* Gap vs Meta - COMPACTO */}
             {gapUnits !== null && variant !== 'meta' && (
-              <div className="mt-3 pt-3 border-t-2 border-slate-200">
-                <div className="flex items-center justify-between mb-1">
-                  <span className={`text-xs font-bold ${colors.subtitleColor}`}>
+              <div className="mt-2 pt-2 border-t border-slate-200">
+                <div className="flex items-center justify-between mb-0.5">
+                  <span className={`text-[10px] font-bold ${colors.subtitleColor}`}>
                     Gap vs Meta:
                   </span>
                 </div>
-                <div className={`text-xl font-black ${getGapColor()}`}>
+                <div className={`text-base font-black ${getGapColor()}`}>
                   {gapUnits > 0 ? '-' : '+'}{Math.abs(gapUnits).toLocaleString('es-CL')}{showPercentage ? '%' : ' unid.'}
                 </div>
                 {gapCLP !== null && gapCLP !== 0 && (
-                  <div className={`text-sm font-bold ${colors.subtitleColor} mt-1`}>
+                  <div className={`text-[11px] font-bold ${colors.subtitleColor} mt-0.5`}>
                     {gapCLP > 0 ? '-' : '+'}{formatCLP(Math.abs(gapCLP))}
                   </div>
                 )}
               </div>
             )}
 
-            {/* Additional Info - MÁS GRANDE */}
+            {/* Additional Info - COMPACTO */}
             {additionalInfo && (
-              <div className={`text-xs font-bold ${colors.subtitleColor} mt-3 pt-3 border-t-2 border-slate-200 leading-relaxed whitespace-pre-line`}>
+              <div className={`text-[10px] font-bold ${colors.subtitleColor} mt-2 pt-2 border-t border-slate-200 leading-snug whitespace-pre-line`}>
                 {additionalInfo}
               </div>
             )}
