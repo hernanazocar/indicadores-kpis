@@ -20,63 +20,8 @@ export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, fir
     }).format(amount);
   };
 
-  // Calcular cumplimiento basado en CLP (más preciso)
+  // Calcular cumplimiento basado en CLP
   const cumplimiento = firmasRealesCLP && valueCLP ? Math.round((firmasRealesCLP / valueCLP) * 100) : 0;
-
-  // Determinar badge según cumplimiento (versión oscura)
-  const getBadgeConfig = () => {
-    if (cumplimiento >= 100) {
-      return {
-        text: 'OBJETIVO ALCANZADO',
-        bgColor: 'bg-emerald-500/20',
-        textColor: 'text-emerald-300',
-        borderColor: 'border-emerald-500/30',
-        icon: (
-          <svg className="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-          </svg>
-        ),
-      };
-    } else if (cumplimiento >= 90) {
-      return {
-        text: 'CASI LOGRADO',
-        bgColor: 'bg-blue-500/20',
-        textColor: 'text-blue-300',
-        borderColor: 'border-blue-500/30',
-        icon: (
-          <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-          </svg>
-        ),
-      };
-    } else if (cumplimiento >= 70) {
-      return {
-        text: `${cumplimiento}% EN PROGRESO`,
-        bgColor: 'bg-amber-500/20',
-        textColor: 'text-amber-300',
-        borderColor: 'border-amber-500/30',
-        icon: (
-          <svg className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-          </svg>
-        ),
-      };
-    } else {
-      return {
-        text: `${cumplimiento}% OBJETIVO`,
-        bgColor: 'bg-slate-500/20',
-        textColor: 'text-slate-300',
-        borderColor: 'border-slate-500/30',
-        icon: (
-          <svg className="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-          </svg>
-        ),
-      };
-    }
-  };
-
-  const badgeConfig = getBadgeConfig();
 
   return (
     <motion.div
