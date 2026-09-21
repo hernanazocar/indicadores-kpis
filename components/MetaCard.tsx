@@ -86,9 +86,9 @@ export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, fir
       className="group h-full"
     >
       <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg overflow-hidden transition-all duration-300 h-full hover:shadow-2xl shadow-xl border-l-4 border-white flex flex-col">
-        <div className="p-3 flex-1 flex flex-col">
+        <div className="p-2.5 flex-1 flex flex-col min-h-0">
           {/* Header */}
-          <div className="flex items-center justify-between mb-2.5">
+          <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <div className="p-1.5 rounded-lg bg-white/10 flex-shrink-0">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,24 +112,24 @@ export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, fir
           </div>
 
           {/* Valores principales */}
-          <div className="space-y-1.5 flex-1 flex flex-col justify-start">
+          <div className="space-y-1 flex-1 flex flex-col justify-start min-h-0">
             {/* Unidades - MÁS GRANDE */}
             <motion.div
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: delay + 0.2 }}
-              className="flex items-baseline gap-2"
+              className="flex items-baseline gap-1.5"
             >
-              <div className="text-4xl font-black text-white leading-none">
+              <div className="text-3xl font-black text-white leading-none">
                 {value.toLocaleString('es-CL')}
               </div>
-              <div className="text-sm font-bold text-slate-300">
+              <div className="text-xs font-bold text-slate-300">
                 unidades
               </div>
             </motion.div>
 
-            {/* Valor CLP - MÁS GRANDE */}
-            <div className="text-xl font-black text-white leading-tight">
+            {/* Valor CLP */}
+            <div className="text-lg font-black text-white leading-tight">
               {formatCLP(valueCLP)}
             </div>
 

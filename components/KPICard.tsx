@@ -207,8 +207,8 @@ export default function KPICard({
       className="group h-full"
     >
       <div className={`relative ${colors.bgColor} ${colors.borderColor} rounded-lg overflow-hidden transition-all duration-300 h-full hover:shadow-2xl shadow-lg flex flex-col`}>
-        <div className="p-3 flex-1 flex flex-col">
-          <div className="flex items-center justify-between mb-2.5">
+        <div className="p-2.5 flex-1 flex flex-col min-h-0">
+          <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               {icon && (
                 <div className={`p-1.5 rounded-lg ${colors.iconBg} flex-shrink-0`}>
@@ -249,27 +249,27 @@ export default function KPICard({
             )}
           </div>
 
-          <div className="space-y-1.5 flex-1 flex flex-col justify-start">
+          <div className="space-y-1 flex-1 flex flex-col justify-start min-h-0">
             {/* Valor en unidades - MÁS GRANDE */}
             <motion.div
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: delay + 0.2 }}
-              className="flex items-baseline gap-2"
+              className="flex items-baseline gap-1.5"
             >
-              <div className={`text-4xl font-black ${colors.valueColor} leading-none`}>
+              <div className={`text-3xl font-black ${colors.valueColor} leading-none`}>
                 {typeof value === 'number' ? value.toLocaleString('es-CL') : value}{showPercentage ? '%' : ''}
               </div>
               {!showPercentage && subtitle && (
-                <div className={`text-sm font-bold ${colors.subtitleColor}`}>
+                <div className={`text-xs font-bold ${colors.subtitleColor}`}>
                   {subtitle}
                 </div>
               )}
             </motion.div>
 
-            {/* Valor en CLP - MÁS GRANDE */}
+            {/* Valor en CLP */}
             {valueCLP !== undefined && valueCLP > 0 && (
-              <div className={`text-xl font-black ${colors.valueColor} leading-tight`}>
+              <div className={`text-lg font-black ${colors.valueColor} leading-tight`}>
                 {formatCLP(valueCLP)}
               </div>
             )}
