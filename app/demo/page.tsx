@@ -70,26 +70,20 @@ function DemoPageContent() {
   // }, []);
 
   return (
-    <div className="h-screen overflow-hidden bg-emerald-900">
-      <div
-        className="container mx-auto px-2 py-1 max-w-7xl h-full flex flex-col"
-        style={{
-          transform: `scale(${scale})`,
-          transformOrigin: 'center center',
-        }}
-      >
-        {/* Header ejecutivo */}
-        <div className="flex items-center justify-between mb-0.5 flex-shrink-0">
+    <div className="h-screen w-screen overflow-hidden bg-emerald-900 flex items-center justify-center">
+      <div className="w-full h-full max-w-[1920px] max-h-[1080px] p-4 flex flex-col">
+        {/* Header ejecutivo - compacto */}
+        <div className="flex items-center justify-between mb-3 flex-shrink-0">
           <div>
-            <h1 className="text-lg font-bold text-white">Inmobiliaria Chicureo</h1>
-            <p className="text-[10px] text-gray-400">Actualizado: {currentTime || 'Cargando...'}</p>
+            <h1 className="text-2xl font-bold text-white">Inmobiliaria Chicureo</h1>
+            <p className="text-sm text-gray-400">Actualizado: {currentTime || 'Cargando...'}</p>
           </div>
           <button
             onClick={handleRefresh}
             disabled={isLoading}
-            className="px-3 py-1 rounded-lg bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-xs font-semibold disabled:opacity-50 transition-all flex items-center gap-1"
+            className="px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-sm font-semibold disabled:opacity-50 transition-all flex items-center gap-2"
           >
-            <svg className={`w-3 h-3 ${isLoading ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
             Actualizar
@@ -97,7 +91,7 @@ function DemoPageContent() {
         </div>
 
         {/* Primera fila: Meta + Reservas + Firmas + Desistimientos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1.5 mb-1 flex-shrink-0">
+        <div className="grid grid-cols-4 gap-3 mb-3 flex-1">
           <MetaCard
             value={kpiData.metaDelMes}
             valueCLP={kpiData.metaDelMesCLP}
@@ -150,21 +144,8 @@ function DemoPageContent() {
           />
         </div>
 
-        {/* Segunda fila: Desistimientos + Días Firmas + Forma de Pago */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 mb-1 flex-shrink-0">
-          <KPICard
-            title="Desistimientos"
-            value={kpiData.desistimientosDelMes}
-            valueCLP={kpiData.desistimientosDelMesCLP}
-            additionalInfo={`${kpiData.porcentajeDesistimientos}% del total (Meta: ${kpiData.metaPorcentajeDesistimientos}% máx.)`}
-            icon={
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-            }
-            variant="danger"
-            delay={0.1}
-          />
+        {/* Segunda fila: 5 KPIs compactos */}
+        <div className="grid grid-cols-5 gap-3 flex-1">
           <KPICard
             title="Días Firmas"
             value={kpiData.diasFirmasDelMes}
@@ -178,7 +159,7 @@ function DemoPageContent() {
               </svg>
             }
             variant="warning"
-            delay={0.15}
+            delay={0.4}
           />
           <KPICard
             title="Forma de Pago"
@@ -192,12 +173,8 @@ function DemoPageContent() {
               </svg>
             }
             variant="success"
-            delay={0.2}
+            delay={0.45}
           />
-        </div>
-
-        {/* Tercera fila: Cobranza + Conversión + Hipotecarios */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 flex-shrink-0">
           <KPICard
             title="Cobranza"
             value={Math.round((kpiData.cobradoRealCLP / kpiData.cobranzaEsperadaCLP) * 100)}
@@ -211,7 +188,7 @@ function DemoPageContent() {
               </svg>
             }
             variant="info"
-            delay={0.3}
+            delay={0.5}
           />
           <KPICard
             title="Conversión"
@@ -226,7 +203,7 @@ function DemoPageContent() {
               </svg>
             }
             variant="primary"
-            delay={0.35}
+            delay={0.55}
           />
           <KPICard
             title="Hipotecarios"
@@ -242,7 +219,7 @@ function DemoPageContent() {
               </svg>
             }
             variant="neutral"
-            delay={0.4}
+            delay={0.6}
           />
         </div>
 
