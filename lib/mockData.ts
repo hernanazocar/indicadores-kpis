@@ -5,18 +5,18 @@ export const mockKPIData: KPIData = {
   metaDelMesCLP: 713800000,
   metaReservas: 45,
   metaReservasCLP: 1383899997,
-  reservasDelMes: 5, // 5 unidades
-  reservasDelMesCLP: 224100000, // $224.100.000
-  firmasDelMes: 4, // 4 unidades
-  firmasDelMesCLP: 148600000, // $148.600.000
-  desistimientosDelMes: 0, // 0 unidades
-  desistimientosDelMesCLP: 0, // $0
-  diasFirmasDelMes: 25.2, // 25.2 días a firma
+  reservasDelMes: 17, // 17 unidades
+  reservasDelMesCLP: 685500000, // $685.500.000
+  firmasDelMes: 14, // 14 unidades
+  firmasDelMesCLP: 621700000, // $621.700.000
+  desistimientosDelMes: 1, // 1 unidad
+  desistimientosDelMesCLP: 59900000, // $59.900.000
+  diasFirmasDelMes: 25.6, // 25.6 días a firma
   metaDiasFirmas: 20, // Meta es 20 días
-  porcentajeDesistimientos: 35.5, // 35.5% de desistimientos
+  porcentajeDesistimientos: 34.5, // 34.5% de desistimientos
   metaPorcentajeDesistimientos: 28, // Meta máxima 28%
-  porcentajeContado: 58.4, // 58.4% contado
-  porcentajeCredito: 41.6, // 41.6% crédito directo
+  porcentajeContado: 59.7, // 59.7% contado
+  porcentajeCredito: 40.7, // 40.7% crédito directo
   cobradoReal: 0, // Sin unidades específicas
   cobradoRealCLP: 58073439, // Pagado: $58.073.439 (55.6% cumplimiento)
   cobranzaEsperada: 0, // Sin unidades específicas
