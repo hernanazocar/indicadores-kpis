@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { mockKPIData, generateRandomKPIData } from '@/lib/mockData';
 import { KPIData } from '@/lib/excelService';
@@ -8,7 +8,7 @@ import Header from '@/components/Header';
 import KPICard from '@/components/KPICard';
 import MetaCard from '@/components/MetaCard';
 
-export default function DemoPage() {
+function DemoPageContent() {
   const searchParams = useSearchParams();
   const [kpiData, setKpiData] = useState<KPIData>(mockKPIData);
   const [isLoading, setIsLoading] = useState(false);
@@ -248,5 +248,17 @@ export default function DemoPage() {
 
       </div>
     </div>
+  );
+}
+
+export default function DemoPage() {
+  return (
+    <Suspense fallback={
+      <div className="h-screen overflow-hidden bg-emerald-900 flex items-center justify-center">
+        <div className="text-white text-lg">Cargando...</div>
+      </div>
+    }>
+      <DemoPageContent />
+    </Suspense>
   );
 }
