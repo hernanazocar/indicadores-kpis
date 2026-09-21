@@ -221,32 +221,6 @@ export default function KPICard({
                 {title}
               </p>
             </div>
-            {metaValue && progressPercent !== undefined && progressPercent > 0 && (
-              <div className="flex items-center gap-1">
-                {progressPercent >= 100 ? (
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 500, damping: 15, delay: delay + 0.3 }}
-                    className="px-2 py-1 rounded-full text-[10px] font-bold bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-md flex items-center gap-1"
-                  >
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    {progressPercent}% PROGRESO
-                  </motion.span>
-                ) : (
-                  <span className={`px-2 py-1 rounded-lg text-[10px] font-bold ${
-                    progressPercent >= 90 ? 'bg-emerald-100 text-emerald-700' :
-                    progressPercent >= 70 ? 'bg-blue-100 text-blue-700' :
-                    progressPercent >= 50 ? 'bg-amber-100 text-amber-700' :
-                    'bg-red-100 text-red-700'
-                  }`}>
-                    {progressPercent}% {progressPercent >= 70 ? 'PROGRESO' : 'OBJETIVO'}
-                  </span>
-                )}
-              </div>
-            )}
           </div>
 
           <div className="space-y-1 flex-1 flex flex-col justify-start min-h-0">

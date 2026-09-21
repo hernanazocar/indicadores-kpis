@@ -100,15 +100,6 @@ export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, fir
               </p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: delay + 0.2 }}
-              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold ${badgeConfig.bgColor} ${badgeConfig.textColor} border ${badgeConfig.borderColor} flex items-center gap-1.5 shadow-md`}
-            >
-              {badgeConfig.icon}
-              <span>{badgeConfig.text}</span>
-            </motion.div>
           </div>
 
           {/* Valores principales */}
