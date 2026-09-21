@@ -207,9 +207,9 @@ export default function KPICard({
       className="group h-full"
     >
       <div className={`relative ${colors.bgColor} ${colors.borderColor} rounded-lg overflow-hidden transition-all duration-300 h-full hover:shadow-2xl shadow-lg flex flex-col`}>
-        <div className="p-2.5 flex-1 flex flex-col">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-1.5">
+        <div className="p-3 flex-1 flex flex-col">
+          <div className="flex items-center justify-between mb-2.5">
+            <div className="flex items-center gap-2">
               {icon && (
                 <div className={`p-1.5 rounded-lg ${colors.iconBg} flex-shrink-0`}>
                   <div className={colors.iconColor}>
@@ -217,7 +217,7 @@ export default function KPICard({
                   </div>
                 </div>
               )}
-              <p className={`text-[11px] font-bold ${colors.titleColor} uppercase tracking-wide`}>
+              <p className={`text-xs font-bold ${colors.titleColor} uppercase tracking-wide`}>
                 {title}
               </p>
             </div>
@@ -249,15 +249,15 @@ export default function KPICard({
             )}
           </div>
 
-          <div className="space-y-1 flex-1 flex flex-col justify-center">
-            {/* Valor en unidades - OPTIMIZADO PARA TV */}
+          <div className="space-y-1.5 flex-1 flex flex-col justify-center">
+            {/* Valor en unidades - MÁS GRANDE */}
             <motion.div
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: delay + 0.2 }}
-              className="flex items-baseline gap-1.5"
+              className="flex items-baseline gap-2"
             >
-              <div className={`text-3xl font-black ${colors.valueColor} leading-none`}>
+              <div className={`text-4xl font-black ${colors.valueColor} leading-none`}>
                 {typeof value === 'number' ? value.toLocaleString('es-CL') : value}{showPercentage ? '%' : ''}
               </div>
               {!showPercentage && subtitle && (
@@ -267,58 +267,58 @@ export default function KPICard({
               )}
             </motion.div>
 
-            {/* Valor en CLP - OPTIMIZADO */}
+            {/* Valor en CLP - MÁS GRANDE */}
             {valueCLP !== undefined && valueCLP > 0 && (
-              <div className={`text-lg font-black ${colors.valueColor} leading-tight`}>
+              <div className={`text-xl font-black ${colors.valueColor} leading-tight`}>
                 {formatCLP(valueCLP)}
               </div>
             )}
 
-            {/* Meta debajo del valor - COMPACTO */}
+            {/* Meta debajo del valor */}
             {metaValue && variant !== 'meta' && (
-              <div className={`text-[11px] font-bold ${colors.subtitleColor} mt-1`}>
+              <div className={`text-xs font-bold ${colors.subtitleColor} mt-1.5`}>
                 Meta: {metaValue.toLocaleString('es-CL')} {showPercentage ? '%' : 'unid.'}
               </div>
             )}
 
-            {/* Barra de Progreso - COMPACTA */}
+            {/* Barra de Progreso */}
             {metaValue && variant !== 'meta' && (
-              <div className="mt-1">
-                <div className="bg-slate-200 h-2 rounded-full overflow-hidden">
+              <div className="mt-1.5">
+                <div className="bg-slate-200 h-2.5 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${Math.min(progressPercent, 100)}%` }}
                     transition={{ duration: 1, delay: delay + 0.3 }}
-                    className={`h-full rounded-full ${colors.progressBg} flex items-center justify-end pr-1`}
+                    className={`h-full rounded-full ${colors.progressBg} flex items-center justify-end pr-1.5`}
                   >
-                    <span className="text-[9px] font-bold text-white">{progressPercent}%</span>
+                    <span className="text-[10px] font-bold text-white">{progressPercent}%</span>
                   </motion.div>
                 </div>
               </div>
             )}
 
-            {/* Gap vs Meta - COMPACTO */}
+            {/* Gap vs Meta */}
             {gapUnits !== null && variant !== 'meta' && (
-              <div className="mt-2 pt-2 border-t border-slate-200">
-                <div className="flex items-center justify-between mb-0.5">
-                  <span className={`text-[10px] font-bold ${colors.subtitleColor}`}>
+              <div className="mt-2.5 pt-2.5 border-t-2 border-slate-200">
+                <div className="flex items-center justify-between mb-1">
+                  <span className={`text-xs font-bold ${colors.subtitleColor}`}>
                     Gap vs Meta:
                   </span>
                 </div>
-                <div className={`text-base font-black ${getGapColor()}`}>
+                <div className={`text-lg font-black ${getGapColor()}`}>
                   {gapUnits > 0 ? '-' : '+'}{Math.abs(gapUnits).toLocaleString('es-CL')}{showPercentage ? '%' : ' unid.'}
                 </div>
                 {gapCLP !== null && gapCLP !== 0 && (
-                  <div className={`text-[11px] font-bold ${colors.subtitleColor} mt-0.5`}>
+                  <div className={`text-xs font-bold ${colors.subtitleColor} mt-1`}>
                     {gapCLP > 0 ? '-' : '+'}{formatCLP(Math.abs(gapCLP))}
                   </div>
                 )}
               </div>
             )}
 
-            {/* Additional Info - COMPACTO */}
+            {/* Additional Info */}
             {additionalInfo && (
-              <div className={`text-[10px] font-bold ${colors.subtitleColor} mt-2 pt-2 border-t border-slate-200 leading-snug whitespace-pre-line`}>
+              <div className={`text-xs font-bold ${colors.subtitleColor} mt-2.5 pt-2.5 border-t-2 border-slate-200 leading-relaxed whitespace-pre-line`}>
                 {additionalInfo}
               </div>
             )}
