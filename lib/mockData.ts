@@ -18,9 +18,9 @@ export const mockKPIData: KPIData = {
   porcentajeContado: 59.7, // 59.7% contado
   porcentajeCredito: 40.7, // 40.7% crédito directo
   cobradoReal: 0, // Sin unidades específicas
-  cobradoRealCLP: 58073439, // Pagado: $58.073.439 (55.6% cumplimiento)
+  cobradoRealCLP: 55139146, // Pagado: $55.139.146 (49% cumplimiento)
   cobranzaEsperada: 0, // Sin unidades específicas
-  cobranzaEsperadaCLP: 104433209, // Total a recaudar: $104.433.209 | Pendiente: $46.359.770
+  cobranzaEsperadaCLP: 112534455, // Total a recaudar: $112.534.455 | Pendiente: $57.395.309
   conversionReservasAFirmas: 0, // 0 firmas de las 5 reservas de este mes = 0%
   metaConversion: 65,
   formaPago: {
