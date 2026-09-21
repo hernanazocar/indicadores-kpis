@@ -249,7 +249,7 @@ export default function KPICard({
             )}
           </div>
 
-          <div className="space-y-1.5 flex-1 flex flex-col justify-center">
+          <div className="space-y-1.5 flex-1 flex flex-col justify-start">
             {/* Valor en unidades - MÁS GRANDE */}
             <motion.div
               initial={{ scale: 0.8 }}

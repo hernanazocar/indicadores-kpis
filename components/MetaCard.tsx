@@ -112,7 +112,7 @@ export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, fir
           </div>
 
           {/* Valores principales */}
-          <div className="space-y-1.5 flex-1 flex flex-col justify-center">
+          <div className="space-y-1.5 flex-1 flex flex-col justify-start">
             {/* Unidades - MÁS GRANDE */}
             <motion.div
               initial={{ scale: 0.8 }}
