@@ -17,6 +17,7 @@ export const mockKPIData: KPIData = {
   metaPorcentajeDesistimientos: 28, // Meta máxima 28%
   porcentajeContado: 59.0, // 59.0% contado
   porcentajeCredito: 31.0, // 31.0% crédito directo
+  porcentajeHipotecario: 10.0, // 10.0% crédito hipotecario
   cobradoReal: 0, // Sin unidades específicas
   cobradoRealCLP: 55139146, // Pagado: $55.139.146 (49% cumplimiento)
   cobranzaEsperada: 0, // Sin unidades específicas
