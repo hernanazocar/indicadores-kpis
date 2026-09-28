@@ -5,31 +5,31 @@ export const mockKPIData: KPIData = {
   metaDelMesCLP: 713800000,
   metaReservas: 45,
   metaReservasCLP: 1383899997,
-  reservasDelMes: 17, // 17 unidades
-  reservasDelMesCLP: 685500000, // $685.500.000
-  firmasDelMes: 14, // 14 unidades
-  firmasDelMesCLP: 621700000, // $621.700.000
-  desistimientosDelMes: 1, // 1 unidad
-  desistimientosDelMesCLP: 59900000, // $59.900.000
-  diasFirmasDelMes: 25.6, // 25.6 días a firma
+  reservasDelMes: 41, // 41 unidades
+  reservasDelMesCLP: 1625700000, // $1.625.700.000
+  firmasDelMes: 23, // 23 unidades
+  firmasDelMesCLP: 959300000, // $959.300.000
+  desistimientosDelMes: 4, // 4 unidades
+  desistimientosDelMesCLP: 172600000, // $172.600.000
+  diasFirmasDelMes: 25.4, // 25.4 días a firma
   metaDiasFirmas: 20, // Meta es 20 días
-  porcentajeDesistimientos: 34.5, // 34.5% de desistimientos
+  porcentajeDesistimientos: 33.3, // 33.3% de desistimientos
   metaPorcentajeDesistimientos: 28, // Meta máxima 28%
-  porcentajeContado: 59.7, // 59.7% contado
-  porcentajeCredito: 40.7, // 40.7% crédito directo
+  porcentajeContado: 59.0, // 59.0% contado
+  porcentajeCredito: 31.0, // 31.0% crédito directo
   cobradoReal: 0, // Sin unidades específicas
   cobradoRealCLP: 55139146, // Pagado: $55.139.146 (49% cumplimiento)
   cobranzaEsperada: 0, // Sin unidades específicas
   cobranzaEsperadaCLP: 112534455, // Total a recaudar: $112.534.455 | Pendiente: $57.395.309
-  conversionReservasAFirmas: 0, // 0 firmas de las 5 reservas de este mes = 0%
+  conversionReservasAFirmas: 4.9, // 4.9% conversión (2 firmas de 41 reservas del mes)
   metaConversion: 65,
   formaPago: {
-    contado: 2, // 58.4% contado (~2 unidades de 4)
-    contadoCLP: 86782400, // 58.4% de 148.600.000
-    credito: 2, // 41.6% crédito directo (~2 unidades de 4)
-    creditoCLP: 61817600, // 41.6% de 148.600.000
-    hipotecario: 0, // 0% crédito hipotecario
-    hipotecarioCLP: 0,
+    contado: 14, // 59% contado (~14 unidades de 23)
+    contadoCLP: 565987000, // 59% de 959.300.000
+    credito: 7, // 31% crédito directo (~7 unidades de 23)
+    creditoCLP: 297383000, // 31% de 959.300.000
+    hipotecario: 2, // 10% crédito hipotecario (~2 unidades de 23)
+    hipotecarioCLP: 95930000, // 10% de 959.300.000
   },
   hipotecariosPendientesCLP: 0,
   diasTramitacionHipotecario: 170, // 170 días de tramitación hipotecario
