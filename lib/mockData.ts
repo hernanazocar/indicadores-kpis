@@ -84,6 +84,7 @@ export function generateRandomKPIData(): KPIData {
     metaPorcentajeDesistimientos: 10,
     porcentajeContado: firmas > 0 ? Math.round((contado / firmas) * 100) : 0,
     porcentajeCredito: firmas > 0 ? Math.round((credito / firmas) * 100) : 0,
+    porcentajeHipotecario: firmas > 0 ? Math.round((hipotecario / firmas) * 100) : 0,
     cobradoReal: cobradoReal,
     cobradoRealCLP: cobradoReal * valorPromedioFirma,
     cobranzaEsperada: cobranzaEsperada,

@@ -17,6 +17,7 @@ export interface KPIData {
   metaPorcentajeDesistimientos: number;
   porcentajeContado: number;
   porcentajeCredito: number;
+  porcentajeHipotecario: number;
   cobradoReal: number;
   cobradoRealCLP: number;
   cobranzaEsperada: number;
@@ -109,6 +110,7 @@ export class ExcelService {
         metaPorcentajeDesistimientos: data.metaPorcentajeDesistimientos || data.metaDesistimientos || 10,
         porcentajeContado: totalVentas > 0 ? Math.round((contado / totalVentas) * 100) : 0,
         porcentajeCredito: totalVentas > 0 ? Math.round((credito / totalVentas) * 100) : 0,
+        porcentajeHipotecario: data.porcentajeHipotecario || 0,
         cobradoReal: data.cobradoReal || data.cobrado || 0,
         cobradoRealCLP: data.cobradoRealCLP || data.cobradoCLP || 0,
         cobranzaEsperada: data.cobranzaEsperada || data.cobranza || 0,
