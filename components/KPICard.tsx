@@ -204,7 +204,7 @@ export default function KPICard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay, ease: 'easeOut' }}
-      className="group h-full"
+      className="group min-h-[180px] md:h-full"
     >
       <div className={`relative ${colors.bgColor} ${colors.borderColor} rounded-lg overflow-hidden transition-all duration-300 h-full hover:shadow-2xl shadow-lg flex flex-col`}>
         <div className="p-2.5 flex-1 flex flex-col min-h-0">

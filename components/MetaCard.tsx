@@ -28,7 +28,7 @@ export default function MetaCard({ value, valueCLP, delay = 0, firmasReales, fir
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay, ease: 'easeOut' }}
-      className="group h-full"
+      className="group min-h-[200px] md:h-full"
     >
       <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg overflow-hidden transition-all duration-300 h-full hover:shadow-2xl shadow-xl border-l-4 border-white flex flex-col">
         <div className="p-2.5 flex-1 flex flex-col min-h-0">

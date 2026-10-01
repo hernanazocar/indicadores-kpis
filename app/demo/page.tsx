@@ -91,7 +91,7 @@ function DemoPageContent() {
         </div>
 
         {/* Primera fila: Meta + Reservas + Firmas + Desistimientos */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-2.5 mb-3 md:mb-2.5 md:flex-1 md:auto-rows-fr md:min-h-0">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-2.5 mb-3 md:mb-2.5 auto-rows-auto md:flex-1 md:auto-rows-fr md:min-h-0">
           <MetaCard
             value={kpiData.metaDelMes}
             valueCLP={kpiData.metaDelMesCLP}
@@ -145,7 +145,7 @@ function DemoPageContent() {
         </div>
 
         {/* Segunda fila: 5 KPIs compactos */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-2.5 md:flex-1 md:auto-rows-fr md:min-h-0">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-2.5 auto-rows-auto md:flex-1 md:auto-rows-fr md:min-h-0">
           <KPICard
             title="Días Firmas"
             value={kpiData.diasFirmasDelMes}
