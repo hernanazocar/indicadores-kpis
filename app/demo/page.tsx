@@ -166,7 +166,7 @@ function DemoPageContent() {
             value={Math.round((kpiData.formaPago.contado / Math.max(1, kpiData.formaPago.contado + kpiData.formaPago.credito + kpiData.formaPago.hipotecario)) * 100)}
             subtitle="% contado"
             showPercentage={true}
-            additionalInfo={`Contado: ${kpiData.porcentajeContado}%\nCrédito: ${kpiData.porcentajeCredito}%\nHipotecario: 0%`}
+            additionalInfo={`Contado: ${kpiData.porcentajeContado}%\nCrédito: ${kpiData.porcentajeCredito}%\nHipotecario: ${kpiData.porcentajeHipotecario}%`}
             icon={
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
@@ -196,7 +196,7 @@ function DemoPageContent() {
             subtitle="% conversión"
             metaValue={kpiData.metaConversion}
             showPercentage={true}
-            additionalInfo={`1 firma de ${kpiData.reservasDelMes} reservas del mes`}
+            additionalInfo={`5 firmas de ${kpiData.reservasDelMes} reservas del mes`}
             icon={
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />

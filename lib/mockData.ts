@@ -5,40 +5,40 @@ export const mockKPIData: KPIData = {
   metaDelMesCLP: 713800000,
   metaReservas: 45,
   metaReservasCLP: 1383899997,
-  reservasDelMes: 41, // 41 unidades
-  reservasDelMesCLP: 1625700000, // $1.625.700.000
-  firmasDelMes: 23, // 23 unidades
-  firmasDelMesCLP: 959300000, // $959.300.000
-  desistimientosDelMes: 4, // 4 unidades
-  desistimientosDelMesCLP: 172600000, // $172.600.000
-  diasFirmasDelMes: 25.4, // 25.4 días a firma
+  reservasDelMes: 45, // 45 unidades
+  reservasDelMesCLP: 1790300000, // $1.790.300.000 (precio promedio: $39.784.444)
+  firmasDelMes: 28, // 28 unidades
+  firmasDelMesCLP: 1112600000, // $1.112.600.000 (precio promedio: $39.735.714)
+  desistimientosDelMes: 10, // 10 unidades
+  desistimientosDelMesCLP: 468000000, // $468.000.000 (ticket promedio: $46.800.000)
+  diasFirmasDelMes: 25.1, // 25.1 días a firma
   metaDiasFirmas: 20, // Meta es 20 días
-  porcentajeDesistimientos: 33.3, // 33.3% de desistimientos
+  porcentajeDesistimientos: 35.0, // 35.0% de desistimientos acumulado
   metaPorcentajeDesistimientos: 28, // Meta máxima 28%
-  porcentajeContado: 59.0, // 59.0% contado
-  porcentajeCredito: 31.0, // 31.0% crédito directo
+  porcentajeContado: 60.0, // 60.0% contado
+  porcentajeCredito: 30.0, // 30.0% crédito directo
   porcentajeHipotecario: 10.0, // 10.0% crédito hipotecario
   cobradoReal: 0, // Sin unidades específicas
-  cobradoRealCLP: 55139146, // Pagado: $55.139.146 (49% cumplimiento)
+  cobradoRealCLP: 3170469, // Cuotas del mes ya pagadas: $3.170.469
   cobranzaEsperada: 0, // Sin unidades específicas
-  cobranzaEsperadaCLP: 112534455, // Total a recaudar: $112.534.455 | Pendiente: $57.395.309
-  conversionReservasAFirmas: 4.9, // 4.9% conversión (2 firmas de 41 reservas del mes)
+  cobranzaEsperadaCLP: 84877494, // Deberíamos recaudar del mes: $84.877.494 | Pendiente: $81.707.025
+  conversionReservasAFirmas: 17.9, // 17.9% conversión del mes (5 firmas de 45 reservas del mes)
   metaConversion: 65,
   formaPago: {
-    contado: 14, // 59% contado (~14 unidades de 23)
-    contadoCLP: 565987000, // 59% de 959.300.000
-    credito: 7, // 31% crédito directo (~7 unidades de 23)
-    creditoCLP: 297383000, // 31% de 959.300.000
-    hipotecario: 2, // 10% crédito hipotecario (~2 unidades de 23)
-    hipotecarioCLP: 95930000, // 10% de 959.300.000
+    contado: 17, // 60% contado (~17 unidades de 28)
+    contadoCLP: 667560000, // 60% de 1.112.600.000
+    credito: 8, // 30% crédito directo (~8 unidades de 28)
+    creditoCLP: 333780000, // 30% de 1.112.600.000
+    hipotecario: 3, // 10% crédito hipotecario (~3 unidades de 28)
+    hipotecarioCLP: 111260000, // 10% de 1.112.600.000
   },
   hipotecariosPendientesCLP: 0,
   diasTramitacionHipotecario: 170, // 170 días de tramitación hipotecario
   metaDiasTramitacionHipotecario: 45,
   otros: {
-    conversion: 3.1,
-    promedioReserva: 48012500, // 1.536.400.000 / 32
-    ticketPromedio: 44339130, // 1.019.800.000 / 23
+    conversion: 17.9,
+    promedioReserva: 39784444, // 1.790.300.000 / 45
+    ticketPromedio: 39735714, // 1.112.600.000 / 28
   },
   ultimaActualizacion: new Date().toISOString(),
 };
